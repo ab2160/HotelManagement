@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.managerController.addRoomandServiceController">
+   <children>
+      <AnchorPane prefHeight="500.0" prefWidth="800.0" styleClass="registerScene" stylesheets="@../CSS/Style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane layoutY="-16.0" prefHeight="500.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label layoutX="94.0" layoutY="80.0" text="Add Room">
+                     <font>
+                        <Font name="Arial" size="40.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="roomstatusField" layoutX="94.0" layoutY="142.0" promptText="Room status" styleClass="Textfield" stylesheets="@../CSS/Style.css" />
+                  <TextField fx:id="classnameField" layoutX="94.0" layoutY="201.0" promptText="Class name" styleClass="Textfield" stylesheets="@../CSS/Style.css" />
+                  <TextField fx:id="bedtypeField" layoutX="315.0" layoutY="142.0" promptText="Bed type" styleClass="Textfield" stylesheets="@../CSS/Style.css" />
+                  <TextField fx:id="roompriceField" layoutX="315.0" layoutY="201.0" promptText="Room price" styleClass="Textfield" stylesheets="@../CSS/Style.css" />
+                  <Button layoutX="416.0" layoutY="250.0" mnemonicParsing="false" onAction="#addRoom" text="Add">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="61.0" fitWidth="38.0" layoutX="34.0" layoutY="35.0" onMouseClicked="#switchTomanager1" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/back.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="94.0" layoutY="293.0" text="Add Service">
+                     <font>
+                        <Font name="Arial" size="40.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="servicetypeField" layoutX="95.0" layoutY="360.0" promptText="Service type" styleClass="Textfield" stylesheets="@../CSS/Style.css" />
+                  <TextField fx:id="servicepriceField" layoutX="94.0" layoutY="405.0" promptText="Service price" styleClass="Textfield" stylesheets="@../CSS/Style.css" />
+                  <Button layoutX="291.0" layoutY="402.0" mnemonicParsing="false" onAction="#addService" text="Add">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

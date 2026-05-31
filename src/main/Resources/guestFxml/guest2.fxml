@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.guestController.guest2Controller">
+   <children>
+      <AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="registerScene" stylesheets="@../CSS/Style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="Hyperlink" stylesheets="@../CSS/Style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label layoutX="93.0" layoutY="89.0" text="Remove Booking">
+                     <font>
+                        <Font name="Arial" size="40.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="100.0" layoutY="168.0" text="Reserved Booking">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="bookingTable" layoutX="100.0" layoutY="214.0" prefHeight="200.0" prefWidth="331.0">
+                    <columns>
+                      <TableColumn fx:id="colBookingid" prefWidth="92.0" text="Booking ID" />
+                      <TableColumn fx:id="colCheckindate" prefWidth="120.0" text="Check in Date" />
+                        <TableColumn fx:id="colRoomnum" prefWidth="118.4000244140625" text="Room Number" />
+                    </columns>
+                  </TableView>
+                  <Button layoutX="324.0" layoutY="431.0" mnemonicParsing="false" onAction="#removeBooking" text="Remove Booking" />
+                  <Hyperlink layoutX="166.0" layoutY="489.0" onMouseClicked="#switchToguest1" text="1">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Hyperlink>
+                  <Hyperlink layoutX="209.0" layoutY="489.0" onMouseClicked="#switchToguest3" text="3">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Hyperlink>
+                  <Hyperlink layoutX="256.0" layoutY="489.0" onMouseClicked="#switchToguest4" text="4">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Hyperlink>
+                  <Hyperlink layoutX="305.0" layoutY="489.0" onMouseClicked="#switchToguest5" text="5">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Hyperlink>
+                  <Hyperlink layoutX="358.0" layoutY="489.0" onMouseClicked="#switchToguest3" text="next">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Hyperlink>
+                  <Hyperlink layoutX="100.0" layoutY="489.0" onMouseClicked="#switchToguest1" text="back">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Hyperlink>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,93 @@
+/* 
+    Created on : May 28, 2026, 4:05:19 PM
+    Author     : Abreham
+*/
+
+.registerScene{
+    -fx-background-color: linear-gradient(to bottom left, #4227F5, #6A5ACD);
+}
+
+.Textfield{
+    -fx-background-color: transparent;
+    -fx-border-color: #D2D1DE;
+    -fx-border-width: 0px 0px 3px 0px;
+    -fx-text-inner-color: #ffffff;
+}
+
+.button{
+    -fx-background-color: #00A8D6;
+    -fx-background-radius: 30px;
+    -fx-text-fill:#ffffff;
+}
+
+.button:hover
+{
+    -fx-background-color: #45BCDE;
+}
+
+.Hyperlink
+{
+    -fx-text-fill: #45BCDE;
+}
+
+.close {
+    -fx-opacity: 0.8;
+    -fx-cursor: hand;
+}
+.close:hover {
+    -fx-opacity: 1.0;
+}
+
+.homeScene
+{
+    -fx-background-color: linear-gradient(to bottom left, #8A68FC, #6A5ACD);
+}
+.menu-bar {
+    -fx-background-color: #AA95F0;
+}
+
+.menu-bar .menu:hover {
+    -fx-background-color: #C0B1F0;
+}
+.menu-item {
+    -fx-background-color: #AA95F0;
+}
+
+.menu-item:hover {
+    -fx-background-color: #C0B1F0;
+}
+
+.homeButton{
+    -fx-background-color: #1E49EB;
+    -fx-background-radius: 20px;
+    -fx-text-fill:#ffffff;
+}
+
+.homeButton:hover
+{
+    -fx-background-color: #4065ED;
+}
+
+.loginScene
+{
+    -fx-background-color: linear-gradient(to bottom left, #4227F5, #6A5ACD);
+}
+
+.date-picker
+{
+    -fx-background-color: #363434;
+}
+
+.ButtonManger
+{
+    -fx-background-color: #73756D;
+    -fx-background-radius: 10px;
+    -fx-text-fill:#ffffff;
+}
+
+.ButtonManger:hover
+{
+    -fx-background-color:#2B3331;
+}
+
+

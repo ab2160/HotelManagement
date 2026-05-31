@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.guestController.guest3Controller">
+   <children>
+      <AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="loginScene" stylesheets="@../CSS/Style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane layoutY="6.0" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label layoutX="79.0" layoutY="73.0" text="Add Service">
+                     <font>
+                        <Font size="40.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="79.0" layoutY="155.0" text="Available Services">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Label>
+                  <ChoiceBox fx:id="serviceChoiceBox" layoutX="363.0" layoutY="165.0" prefWidth="150.0" />
+                  <Button layoutX="513.0" layoutY="327.0" mnemonicParsing="false" onAction="#addService" text="Add Service" />
+                  <Hyperlink layoutX="144.0" layoutY="442.0" onMouseClicked="#switchToguest2" text="2">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Hyperlink>
+                  <Hyperlink layoutX="186.0" layoutY="442.0" onMouseClicked="#switchToguest4" text="4">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Hyperlink>
+                  <Hyperlink layoutX="79.0" layoutY="442.0" onMouseClicked="#switchToguest2" text="back">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Hyperlink>
+                  <Hyperlink layoutX="242.0" layoutY="442.0" onMouseClicked="#switchToguest4" text="next">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Hyperlink>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.guestController.loginController">
+   <children>
+      <AnchorPane layoutY="7.0" prefHeight="400.0" prefWidth="600.0" styleClass="loginScene" stylesheets="@../CSS/Style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane layoutY="7.0" prefHeight="400.0" prefWidth="600.0" styleClass="Hyperlink" stylesheets="@../CSS/Style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label layoutX="68.0" layoutY="51.0" text="Log in">
+                     <font>
+                        <Font name="Arial" size="40.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="usernameField" layoutX="68.0" layoutY="127.0" promptText="User name" styleClass="Textfield" stylesheets="@../CSS/Style.css" />
+                  <PasswordField fx:id="passwordField" layoutX="68.0" layoutY="188.0" promptText="Password" styleClass="Textfield" />
+                  <Button layoutX="167.0" layoutY="256.0" mnemonicParsing="false" onAction="#login" stylesheets="@../CSS/Style.css" text="Log in" />
+                  <Hyperlink layoutX="167.0" layoutY="301.0" onAction="#switchToregister" text="Create a new Account" />
+                  <ImageView fx:id="closeImage" fitHeight="39.0" fitWidth="150.0" layoutX="547.0" layoutY="14.0" onMouseClicked="#loginClose" pickOnBounds="true" preserveRatio="true" styleClass="close">
+                     <image>
+                        <Image url="@../Images/close.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
