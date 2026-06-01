@@ -1,17 +1,8 @@
 package com.mycompany.model;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.util.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-
 public class Manager extends User {
 
     protected int manager_id;
-
-    Date checkin_date;
-    Date checkout_date;
     protected int room_num;
     protected int waiter_id;
     protected int guest_id;

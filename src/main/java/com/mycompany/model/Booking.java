@@ -2,19 +2,11 @@ package com.mycompany.model;
 
 import java.util.Date;
 
-
 public class Booking {
 
     protected int booking_id;
     protected Date checkin_date;
     protected int room_num;
-    String room_status;
-    String class_name;
-    String bed_type;
-    double room_price;
-    int service_id;
-    String service_type;
-    double service_price;
 
     public Booking() {
     }

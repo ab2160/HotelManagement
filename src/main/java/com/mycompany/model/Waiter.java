@@ -1,17 +1,8 @@
 package com.mycompany.model;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-
 public class Waiter extends User {
 
     protected int waiter_id;
-    int service_id;
-    String service_type;
-    double service_price;
-    int booking_id;
 
     public Waiter() {
     }

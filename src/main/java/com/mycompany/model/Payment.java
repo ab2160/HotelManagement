@@ -1,4 +1,3 @@
-
 package com.mycompany.model;
 
 import java.util.Date;

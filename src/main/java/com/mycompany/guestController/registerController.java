@@ -172,6 +172,10 @@ public class registerController {
                     e.printStackTrace();
                 }
             } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Registration");
+                alert.setContentText("Registration Failed.");
+                alert.showAndWait();
                 System.out.println("Registration failed.");
             }
         } catch (Exception e) {

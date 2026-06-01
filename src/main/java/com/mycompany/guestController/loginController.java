@@ -156,6 +156,10 @@ public class loginController {
                 e.printStackTrace();
             }
         } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Login");
+            alert.setContentText("Login Failed.");
+            alert.showAndWait();
             System.out.println("Login failed.");
         }
     }

@@ -1,18 +1,8 @@
 package com.mycompany.model;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.util.Date;
-import java.sql.ResultSet;
-
 public class Guest extends User {
 
     protected int guest_id;
-    int booking_id;
-    Date checkin_date;
-    Date checkout_date;
-    int room_num;
 
     public Guest() {
     }
