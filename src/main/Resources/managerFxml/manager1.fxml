@@ -60,7 +60,7 @@
                      <font>
                         <Font size="15.0" />
                      </font></Button>
-                  <Label layoutX="73.0" layoutY="350.0" text="7. Add Room">
+                  <Label layoutX="75.0" layoutY="350.0" text="7. Add Room">
                      <font>
                         <Font size="23.0" />
                      </font>
@@ -70,7 +70,7 @@
                         <Font size="23.0" />
                      </font>
                   </Label>
-                  <Label layoutX="73.0" layoutY="391.0" text="8. Add Service">
+                  <Label layoutX="75.0" layoutY="391.0" text="8. Add Service">
                      <font>
                         <Font size="23.0" />
                      </font>
@@ -85,12 +85,12 @@
                         <Font size="23.0" />
                      </font>
                   </Label>
-                  <Label layoutX="387.0" layoutY="432.0" text="12. Remove Booking">
+                  <Label layoutX="390.0" layoutY="432.0" text="12. Remove Booking">
                      <font>
                         <Font size="23.0" />
                      </font>
                   </Label>
-                  <Label layoutX="385.0" layoutY="391.0" text="11. Remove Service">
+                  <Label layoutX="390.0" layoutY="392.0" text="11. Remove Service">
                      <font>
                         <Font size="23.0" />
                      </font>
@@ -105,7 +105,10 @@
                         <Font size="23.0" />
                      </font>
                   </Label>
-                  <Button layoutX="616.0" layoutY="498.0" mnemonicParsing="false" onAction="#switchToguest5" styleClass="ButtonManger" stylesheets="@../CSS/Style.css" text="Check out" />
+                  <Button layoutX="607.0" layoutY="495.0" mnemonicParsing="false" onAction="#switchToguest5" styleClass="ButtonManger" stylesheets="@../CSS/Style.css" text="Check out">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Button>
                   <ImageView fitHeight="41.0" fitWidth="38.0" layoutX="28.0" layoutY="31.0" onMouseClicked="#switchTohome" pickOnBounds="true" preserveRatio="true" styleClass="close">
                      <image>
                         <Image url="@../Images/back.png" />

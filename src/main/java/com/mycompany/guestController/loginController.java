@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -78,6 +79,15 @@ public class loginController {
 
         UserConnection UC = new UserConnection(); // unified DAO
         String role = UC.loginUser(uname, pass);
+
+        if (uname.isEmpty() || pass.isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Missing Information");
+            alert.setHeaderText("Login Incomplete");
+            alert.setContentText("Please fill in the required fields.");
+            alert.showAndWait();
+            return;
+        }
 
         if (role != null) {
             try {

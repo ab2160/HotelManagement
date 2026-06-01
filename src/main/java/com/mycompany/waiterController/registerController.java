@@ -1,10 +1,7 @@
 package com.mycompany.waiterController;
 
 import com.mycompany.dao.ManagerConnection;
-import com.mycompany.dao.WaiterConnection;
-import com.mycompany.managerController.manager1Controller;
 import com.mycompany.model.Manager;
-import com.mycompany.model.Waiter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,7 +15,6 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 public class registerController {
 
@@ -132,6 +128,15 @@ public class registerController {
             String pass = passwordField.getText();
             String phone = phoneField.getText();
 
+            if (fname.isEmpty() || lname.isEmpty() || uname.isEmpty() || pass.isEmpty() || phone.isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Missing Information");
+                alert.setHeaderText("Registration Incomplete");
+                alert.setContentText("Please fill in the required fields.");
+                alert.showAndWait();
+                return;
+            }
+
             int waiterid = 0;
             Manager M = new Manager(waiterid, fname, lname, uname, pass, phone, "Waiter");
             ManagerConnection MC = new ManagerConnection();
@@ -157,7 +162,7 @@ public class registerController {
                     Stage waiterStage = new Stage();
                     waiterStage.setScene(scene);
                     waiterStage.show();
-                    
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

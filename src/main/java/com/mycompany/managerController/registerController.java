@@ -113,7 +113,7 @@ public class registerController {
             stage.close();
             Stage managerStage = new Stage();
             managerStage.setScene(scene);
-            
+
             managerStage.getIcons().add(new Image(getClass().getResourceAsStream("/Images/Hotel.png")));
             managerStage.setTitle("Hotel Management System");
             managerStage.show();
@@ -132,6 +132,15 @@ public class registerController {
             String pass = passwordField.getText();
             String phone = phoneField.getText();
 
+            if (fname.isEmpty() || lname.isEmpty() || uname.isEmpty() || pass.isEmpty() || phone.isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Missing Information");
+                alert.setHeaderText("Registration Incomplete");
+                alert.setContentText("Please fill in the required fields.");
+                alert.showAndWait();
+                return;
+            }
+            
             int managerid = 0;
             Manager M = new Manager(managerid, fname, lname, uname, pass, phone, "Manager");
             ManagerConnection MC = new ManagerConnection();

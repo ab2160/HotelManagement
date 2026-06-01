@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -131,6 +132,15 @@ public class registerController {
             String pass = passwordField.getText();
             String phone = phoneField.getText();
 
+            if(fname.isEmpty() || lname.isEmpty() || uname.isEmpty() || pass.isEmpty() || phone.isEmpty())
+            {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Missing Information");
+                alert.setHeaderText("Registration Incomplete");
+                alert.setContentText("Please fill in the required fields.");
+                alert.showAndWait();
+                return;
+            }
             int guestid = 0;
             Guest G = new Guest(guestid, fname, lname, uname, pass, phone);
             GuestConnection GC = new GuestConnection();
