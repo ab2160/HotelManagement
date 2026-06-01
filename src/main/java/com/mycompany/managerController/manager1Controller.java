@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -22,7 +23,7 @@ public class manager1Controller {
     public void displayManager(String name) {
         welcomelabel.setText("Welcome Manager " + name);
     }
-    
+
     @FXML
     public void switchTohome(MouseEvent event) {
         try {
@@ -38,13 +39,16 @@ public class manager1Controller {
             stage.close();
             Stage homeStage = new Stage();
             homeStage.setScene(scene);
+            
+            homeStage.getIcons().add(new Image(getClass().getResourceAsStream("/Images/Hotel.png")));
+            homeStage.setTitle("Hotel Management System");
             homeStage.show();
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    
+
     @FXML
     public void switchToregister(ActionEvent event) {
         try {
@@ -67,7 +71,7 @@ public class manager1Controller {
             e.printStackTrace();
         }
     }
-    
+
     @FXML
     public void switchTologin(ActionEvent event) {
         try {
@@ -90,8 +94,8 @@ public class manager1Controller {
             e.printStackTrace();
         }
     }
-    
-        @FXML
+
+    @FXML
     public void switchToManagerregister(ActionEvent event) {
         try {
             root = FXMLLoader.load(getClass().getResource("/managerFxml/registerManager.fxml"));
@@ -113,8 +117,8 @@ public class manager1Controller {
             e.printStackTrace();
         }
     }
-    
-        @FXML
+
+    @FXML
     public void switchToWaiterregister(ActionEvent event) {
         try {
             root = FXMLLoader.load(getClass().getResource("/waiterFxml/registerWaiter.fxml"));
@@ -136,7 +140,7 @@ public class manager1Controller {
             e.printStackTrace();
         }
     }
-    
+
     @FXML
     public void switchToremoveUser(ActionEvent event) {
         try {
@@ -155,7 +159,7 @@ public class manager1Controller {
             e.printStackTrace();
         }
     }
-    
+
     @FXML
     public void switchToaddRoomandService(ActionEvent event) {
         try {
@@ -174,8 +178,8 @@ public class manager1Controller {
             e.printStackTrace();
         }
     }
-    
-        @FXML
+
+    @FXML
     public void switchToguest1(ActionEvent event) {
         try {
             root = FXMLLoader.load(getClass().getResource("/guestFxml/guest1.fxml"));
@@ -193,8 +197,8 @@ public class manager1Controller {
             e.printStackTrace();
         }
     }
-    
-        @FXML
+
+    @FXML
     public void switchToremoveRoomandService(ActionEvent event) {
         try {
             root = FXMLLoader.load(getClass().getResource("/managerFxml/removeRoomandService.fxml"));
@@ -212,8 +216,8 @@ public class manager1Controller {
             e.printStackTrace();
         }
     }
-    
-            @FXML
+
+    @FXML
     public void switchToguest2(ActionEvent event) {
         try {
             root = FXMLLoader.load(getClass().getResource("/guestFxml/guest2.fxml"));
@@ -231,8 +235,8 @@ public class manager1Controller {
             e.printStackTrace();
         }
     }
-    
-            @FXML
+
+    @FXML
     public void switchToguest5(ActionEvent event) {
         try {
             root = FXMLLoader.load(getClass().getResource("/guestFxml/guest5.fxml"));

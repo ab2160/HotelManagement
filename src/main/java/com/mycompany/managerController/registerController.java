@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -98,9 +99,9 @@ public class registerController {
     }
 
     @FXML
-    public void switchTohome(MouseEvent event) {
+    public void switchTomanager1(MouseEvent event) {
         try {
-            root = FXMLLoader.load(getClass().getResource("/guestFxml/homePage.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/managerFxml/manager1.fxml"));
             Scene scene = new Scene(root);
 
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -110,9 +111,12 @@ public class registerController {
             scene.getStylesheets().add(css);
 
             stage.close();
-            Stage homeStage = new Stage();
-            homeStage.setScene(scene);
-            homeStage.show();
+            Stage managerStage = new Stage();
+            managerStage.setScene(scene);
+            
+            managerStage.getIcons().add(new Image(getClass().getResourceAsStream("/Images/Hotel.png")));
+            managerStage.setTitle("Hotel Management System");
+            managerStage.show();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -132,21 +136,18 @@ public class registerController {
             Manager M = new Manager(managerid, fname, lname, uname, pass, phone, "Manager");
             ManagerConnection MC = new ManagerConnection();
             boolean success = MC.saveManagerData(M);
-            if(success)
-            {
+            if (success) {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("Registration");
                 alert.setHeaderText("Manager registered successfully.");
                 alert.showAndWait();
-            }
-            else
-            {
+            } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Registration");
                 alert.setHeaderText("Registration failed.");
                 alert.showAndWait();
             }
-            
+
         } catch (Exception e) {
             e.printStackTrace();
         }

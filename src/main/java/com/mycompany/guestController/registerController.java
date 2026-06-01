@@ -9,6 +9,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -111,6 +112,9 @@ public class registerController {
             stage.close();
             Stage homeStage = new Stage();
             homeStage.setScene(scene);
+
+            homeStage.getIcons().add(new Image(getClass().getResourceAsStream("/Images/Hotel.png")));
+            homeStage.setTitle("Hotel Management System");
             homeStage.show();
 
         } catch (Exception e) {
@@ -137,7 +141,7 @@ public class registerController {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/guestFxml/guest1.fxml"));
                     root = loader.load();
                     Scene scene = new Scene(root);
-                    
+
                     guest1Controller welcomeController = loader.getController();
                     welcomeController.displayGuest(fname);
                     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -149,6 +153,9 @@ public class registerController {
                     stage.close();
                     Stage guestStage = new Stage();
                     guestStage.setScene(scene);
+                    
+                    guestStage.getIcons().add(new Image(getClass().getResourceAsStream("/Images/Hotel.png")));
+                    guestStage.setTitle("Hotel Management System");
                     guestStage.show();
 
                 } catch (Exception e) {

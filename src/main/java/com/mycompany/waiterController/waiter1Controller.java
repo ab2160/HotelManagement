@@ -19,6 +19,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -100,9 +101,7 @@ public class waiter1Controller {
             alert.setTitle("Completed");
             alert.setContentText("Service completed successfully.");
             alert.showAndWait();
-        }
-        else
-        {
+        } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Not Completed");
             alert.setContentText("Service not completed successfully.");
@@ -125,6 +124,8 @@ public class waiter1Controller {
             stage.close();
             Stage homeStage = new Stage();
             homeStage.setScene(scene);
+            homeStage.getIcons().add(new Image(getClass().getResourceAsStream("/Images/Hotel.png")));
+            homeStage.setTitle("Hotel Management System");
             homeStage.show();
 
         } catch (Exception e) {

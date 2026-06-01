@@ -17,10 +17,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
@@ -140,53 +142,50 @@ public class guest5Controller {
         }
         paymentTable.setItems(availablePayment);
     }
-    
-    @FXML public void checkOut(ActionEvent event)
-    {
+
+    @FXML
+    public void checkOut(ActionEvent event) {
         Payment selectedPayment = paymentTable.getSelectionModel().getSelectedItem();
-        if(selectedPayment != null)
-        {
+        if (selectedPayment != null) {
             int bookingId = selectedPayment.getBookingId();
-            
+
             Booking selectedBooking = null;
-            try(Connection con = DatabaseConnection.getConnection())
-            {
+            try (Connection con = DatabaseConnection.getConnection()) {
                 PreparedStatement P = con.prepareStatement("SELECT booking_id, checkin_date, room_num FROM Booking WHERE booking_id = ?");
                 P.setInt(1, bookingId);
                 ResultSet r = P.executeQuery();
-                if(r.next())
-                {
+                if (r.next()) {
                     selectedBooking = new Booking(r.getInt("booking_id"),
                             r.getDate("checkin_date"),
-                            r.getInt("room_num"));   
-                }           
-            }
-            catch(Exception e)
-            {
+                            r.getInt("room_num"));
+                }
+            } catch (Exception e) {
                 e.printStackTrace();
             }
-            
-            if(selectedBooking != null)
-            {
+
+            if (selectedBooking != null) {
                 BookingConnection BC = new BookingConnection();
                 boolean success = BC.check_out(selectedBooking);
-                if(success)
-                {
+                if (success) {
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setTitle("Completed");
+                    alert.setHeaderText("Check out successful.");
+                    alert.setContentText("Selected booking: " + selectedBooking.getBookingid());
+                    alert.showAndWait();
                     System.out.println("Check out successful.");
-                }
-                else
-                {
+                } else {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Failed");
+                    alert.setContentText("Check out failed.");
                     System.out.println("Check out failed.");
                 }
-            }
-            else
-            {
+            } else {
                 System.out.println("No payment found for Booking id: " + bookingId);
             }
-        }   
+        }
     }
-    
-        @FXML
+
+    @FXML
     public void switchToguest1(MouseEvent event) {
         try {
             root = FXMLLoader.load(getClass().getResource("/guestFxml/guest1.fxml"));
@@ -197,15 +196,17 @@ public class guest5Controller {
 
             String css = getClass().getResource("/CSS/Style.css").toExternalForm();
             scene.getStylesheets().add(css);
-
+            
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("/Images/Hotel.png")));
+            stage.setTitle("Hotel Management System");
             stage.show();
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    
-        @FXML
+
+    @FXML
     public void switchToguest2(MouseEvent event) {
         try {
             root = FXMLLoader.load(getClass().getResource("/guestFxml/guest2.fxml"));
@@ -217,14 +218,16 @@ public class guest5Controller {
             String css = getClass().getResource("/CSS/Style.css").toExternalForm();
             scene.getStylesheets().add(css);
 
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("/Images/Hotel.png")));
+            stage.setTitle("Hotel Management System");
             stage.show();
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    
-        @FXML
+
+    @FXML
     public void switchToguest3(MouseEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/guestFxml/guest3.fxml"));
@@ -236,7 +239,9 @@ public class guest5Controller {
 
             String css = getClass().getResource("/CSS/Style.css").toExternalForm();
             scene.getStylesheets().add(css);
-
+            
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("/Images/Hotel.png")));
+            stage.setTitle("Hotel Management System");
             stage.show();
 
         } catch (Exception e) {
@@ -255,7 +260,9 @@ public class guest5Controller {
 
             String css = getClass().getResource("/CSS/Style.css").toExternalForm();
             scene.getStylesheets().add(css);
-
+            
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("/Images/Hotel.png")));
+            stage.setTitle("Hotel Management System");
             stage.show();
 
         } catch (Exception e) {

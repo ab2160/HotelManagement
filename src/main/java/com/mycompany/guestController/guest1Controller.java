@@ -17,15 +17,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-
 
 public class guest1Controller {
 
@@ -101,21 +102,26 @@ public class guest1Controller {
             B.setRoomnum(selectedRoom.getRoomnum());
             BookingConnection BC = new BookingConnection();
             boolean success = BC.addBooking(B);
-            if(success)
-            {
+            if (success) {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Completed");
+                alert.setHeaderText("Booking added successfully.");
+                alert.setContentText("Selected room: " + selectedRoom.getRoomnum());
+                alert.showAndWait();
                 System.out.println("Booking added successfully!");
                 System.out.println("Selected room: " + selectedRoom.getRoomnum());
-            }
-            else
-            {
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Failed");
+                alert.setContentText("Booking failed!");
                 System.out.println("Booking failed!");
             }
-            
+
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    
+
     @FXML
     public void switchTohome(MouseEvent event) {
         try {
@@ -128,16 +134,15 @@ public class guest1Controller {
             String css = getClass().getResource("/CSS/Style.css").toExternalForm();
             scene.getStylesheets().add(css);
 
-            stage.close();
-            Stage homeStage = new Stage();
-            homeStage.setScene(scene);
-            homeStage.show();
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("/Images/Hotel.png")));
+            stage.setTitle("Hotel Management System");
+            stage.show();
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    
+
     @FXML
     public void switchToguest2(MouseEvent event) {
         try {
@@ -150,13 +155,15 @@ public class guest1Controller {
             String css = getClass().getResource("/CSS/Style.css").toExternalForm();
             scene.getStylesheets().add(css);
 
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("/Images/Hotel.png")));
+            stage.setTitle("Hotel Management System");
             stage.show();
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    
+
     @FXML
     public void switchToguest4(MouseEvent event) {
         try {
@@ -169,14 +176,16 @@ public class guest1Controller {
             String css = getClass().getResource("/CSS/Style.css").toExternalForm();
             scene.getStylesheets().add(css);
 
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("/Images/Hotel.png")));
+            stage.setTitle("Hotel Management System");
             stage.show();
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    
-        @FXML
+
+    @FXML
     public void switchToguest5(MouseEvent event) {
         try {
             root = FXMLLoader.load(getClass().getResource("/guestFxml/guest5.fxml"));
@@ -188,6 +197,8 @@ public class guest1Controller {
             String css = getClass().getResource("/CSS/Style.css").toExternalForm();
             scene.getStylesheets().add(css);
 
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("/Images/Hotel.png")));
+            stage.setTitle("Hotel Management System");
             stage.show();
 
         } catch (Exception e) {

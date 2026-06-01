@@ -17,6 +17,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -118,7 +119,7 @@ public class guest4Controller {
         }
     }
     
-        @FXML
+    @FXML
     public void switchToguest2(MouseEvent event) {
         try {
             root = FXMLLoader.load(getClass().getResource("/guestFxml/guest2.fxml"));
@@ -130,6 +131,8 @@ public class guest4Controller {
             String css = getClass().getResource("/CSS/Style.css").toExternalForm();
             scene.getStylesheets().add(css);
 
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("/Images/Hotel.png")));
+            stage.setTitle("Hotel Management System");
             stage.show();
 
         } catch (Exception e) {
@@ -149,7 +152,9 @@ public class guest4Controller {
 
             String css = getClass().getResource("/CSS/Style.css").toExternalForm();
             scene.getStylesheets().add(css);
-
+            
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("/Images/Hotel.png")));
+            stage.setTitle("Hotel Management System");
             stage.show();
 
         } catch (Exception e) {
@@ -168,7 +173,9 @@ public class guest4Controller {
 
             String css = getClass().getResource("/CSS/Style.css").toExternalForm();
             scene.getStylesheets().add(css);
-
+            
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("/Images/Hotel.png")));
+            stage.setTitle("Hotel Management System");
             stage.show();
 
         } catch (Exception e) {

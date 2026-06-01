@@ -14,7 +14,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
@@ -81,8 +83,16 @@ public class guest3Controller {
             ServiceConnection SC = new ServiceConnection();
             boolean success = SC.addGuestService(bookingId, serviceId);
             if (success) {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Completed");
+                alert.setHeaderText("Service added successfully.");
+                alert.setContentText("Selected service: " + selectedService.getServicetype());
+                alert.showAndWait();
                 System.out.println("Service added successfully.");
             } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Failed");
+                alert.setContentText("Service not added");
                 System.out.println("Service not added.");
             }
         } catch (Exception e) {
@@ -102,6 +112,8 @@ public class guest3Controller {
             String css = getClass().getResource("/CSS/Style.css").toExternalForm();
             scene.getStylesheets().add(css);
 
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("/Images/Hotel.png")));
+            stage.setTitle("Hotel Management System");
             stage.show();
 
         } catch (Exception e) {
@@ -120,7 +132,9 @@ public class guest3Controller {
 
             String css = getClass().getResource("/CSS/Style.css").toExternalForm();
             scene.getStylesheets().add(css);
-
+            
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("/Images/Hotel.png")));
+            stage.setTitle("Hotel Management System");
             stage.show();
 
         } catch (Exception e) {

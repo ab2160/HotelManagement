@@ -14,6 +14,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
@@ -131,12 +132,15 @@ public class loginController {
                             welcomeController.displayWaiter(fname);
                         }
                     }
-                } 
+                }
                 stage.setScene(scene);
                 stage.close();
-                Stage guestStage = new Stage();
-                guestStage.setScene(scene);
-                guestStage.show();
+
+                Stage newStage = new Stage();
+                newStage.setScene(scene);
+                newStage.getIcons().add(new Image(getClass().getResourceAsStream("/Images/Hotel.png")));
+                newStage.setTitle("Hotel Management System");
+                newStage.show();
 
             } catch (Exception e) {
                 e.printStackTrace();
