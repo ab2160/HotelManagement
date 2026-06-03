@@ -8,7 +8,8 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-public class MainGUI extends Application{
+public class MainGUI extends Application {
+
     @Override
     public void start(Stage stage) {
         try {
@@ -17,10 +18,10 @@ public class MainGUI extends Application{
             String css = getClass().getResource("/CSS/Style.css").toExternalForm();
             scene.getStylesheets().add(css);
             stage.setScene(scene);
-            
+
             stage.getIcons().add(new Image(getClass().getResourceAsStream("/Images/Hotel.png")));
             stage.setTitle("Hotel Management System");
-            
+
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
@@ -30,5 +31,5 @@ public class MainGUI extends Application{
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }
