@@ -170,7 +170,7 @@ public class guest5Controller {
                     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                     alert.setTitle("Completed");
                     alert.setHeaderText("Check out successful.");
-                    alert.setContentText("Selected booking: " + selectedBooking.getBookingid());
+                    alert.setContentText("Total amount paid: " + selectedPayment.getTotalAmount());
                     alert.showAndWait();
                     System.out.println("Check out successful.");
                 } else {
@@ -180,6 +180,9 @@ public class guest5Controller {
                     System.out.println("Check out failed.");
                 }
             } else {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("No payment found");
+                System.out.println("No payment found for Booking id: " + selectedBooking.getBookingid());
                 System.out.println("No payment found for Booking id: " + bookingId);
             }
         }
@@ -196,7 +199,7 @@ public class guest5Controller {
 
             String css = getClass().getResource("/CSS/Style.css").toExternalForm();
             scene.getStylesheets().add(css);
-            
+
             stage.getIcons().add(new Image(getClass().getResourceAsStream("/Images/Hotel.png")));
             stage.setTitle("Hotel Management System");
             stage.show();
@@ -239,7 +242,7 @@ public class guest5Controller {
 
             String css = getClass().getResource("/CSS/Style.css").toExternalForm();
             scene.getStylesheets().add(css);
-            
+
             stage.getIcons().add(new Image(getClass().getResourceAsStream("/Images/Hotel.png")));
             stage.setTitle("Hotel Management System");
             stage.show();
@@ -260,7 +263,7 @@ public class guest5Controller {
 
             String css = getClass().getResource("/CSS/Style.css").toExternalForm();
             scene.getStylesheets().add(css);
-            
+
             stage.getIcons().add(new Image(getClass().getResourceAsStream("/Images/Hotel.png")));
             stage.setTitle("Hotel Management System");
             stage.show();
