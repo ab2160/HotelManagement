@@ -59,12 +59,12 @@
                      <font>
                         <Font name="Arial" size="20.0" />
                      </font></Label>
-                        <Button layoutX="14.0" layoutY="41.0" mnemonicParsing="false" onAction="#switchToregister" stylesheets="@../CSS/Style.css" text="Register Guest" />
-                        <Button layoutX="14.0" layoutY="81.0" mnemonicParsing="false" onAction="#switchToWaiterregister" stylesheets="@../CSS/Style.css" text="Register Waiter" />
-                        <Button layoutX="14.0" layoutY="121.0" mnemonicParsing="false" onAction="#switchToManagerregister" stylesheets="@../CSS/Style.css" text="Register Manager" />
-                        <Button layoutX="138.0" layoutY="41.0" mnemonicParsing="false" onAction="#switchToremoveUser" stylesheets="@../CSS/Style.css" text="Remove Guest" />
-                        <Button layoutX="138.0" layoutY="81.0" mnemonicParsing="false" onAction="#switchToremoveUser" stylesheets="@../CSS/Style.css" text="Remove Waiter" />
-                        <Button layoutX="138.0" layoutY="121.0" mnemonicParsing="false" onAction="#switchToremoveUser" stylesheets="@../CSS/Style.css" text="Remove Manager" />
+                        <Button layoutX="14.0" layoutY="41.0" mnemonicParsing="false" onAction="#switchToregister" styleClass="ButtonManger" stylesheets="@../CSS/Style.css" text="Register Guest" />
+                        <Button layoutX="14.0" layoutY="81.0" mnemonicParsing="false" onAction="#switchToWaiterregister" styleClass="ButtonManger" stylesheets="@../CSS/Style.css" text="Register Waiter" />
+                        <Button layoutX="14.0" layoutY="121.0" mnemonicParsing="false" onAction="#switchToManagerregister" styleClass="ButtonManger" stylesheets="@../CSS/Style.css" text="Register Manager" />
+                        <Button layoutX="138.0" layoutY="41.0" mnemonicParsing="false" onAction="#switchToremoveUser" styleClass="ButtonManger" stylesheets="@../CSS/Style.css" text="Remove Guest" />
+                        <Button layoutX="138.0" layoutY="81.0" mnemonicParsing="false" onAction="#switchToremoveUser" styleClass="ButtonManger" stylesheets="@../CSS/Style.css" text="Remove Waiter" />
+                        <Button layoutX="138.0" layoutY="121.0" mnemonicParsing="false" onAction="#switchToremoveUser" styleClass="ButtonManger" stylesheets="@../CSS/Style.css" text="Remove Manager" />
                     </children>
                 </AnchorPane>
                 <AnchorPane layoutX="14.0" layoutY="250.0" prefHeight="180.0" prefWidth="251.0">
@@ -73,12 +73,12 @@
                      <font>
                         <Font name="Arial" size="18.0" />
                      </font></Label>
-                        <Button layoutX="14.0" layoutY="38.0" mnemonicParsing="false" onAction="#switchToregister" stylesheets="@../CSS/Style.css" text="Add Booking" />
-                        <Button layoutX="14.0" layoutY="74.0" mnemonicParsing="false" onAction="#switchToaddRoomandService" stylesheets="@../CSS/Style.css" text="Add Room" />
-                        <Button layoutX="14.0" layoutY="113.0" mnemonicParsing="false" onAction="#switchToaddRoomandService" stylesheets="@../CSS/Style.css" text="Add Service" />
-                        <Button layoutX="126.0" layoutY="38.0" mnemonicParsing="false" onAction="#switchTologin" stylesheets="@../CSS/Style.css" text="Remove Booking" />
-                        <Button layoutX="126.0" layoutY="77.0" mnemonicParsing="false" onAction="#switchToremoveRoomandService" stylesheets="@../CSS/Style.css" text="Remove Room" />
-                        <Button layoutX="126.0" layoutY="113.0" mnemonicParsing="false" onAction="#switchToremoveRoomandService" stylesheets="@../CSS/Style.css" text="Remove Service" />
+                        <Button layoutX="14.0" layoutY="38.0" mnemonicParsing="false" onAction="#switchToregister" styleClass="ButtonManger" stylesheets="@../CSS/Style.css" text="Add Booking" />
+                        <Button layoutX="14.0" layoutY="74.0" mnemonicParsing="false" onAction="#switchToaddRoomandService" styleClass="ButtonManger" stylesheets="@../CSS/Style.css" text="Add Room" />
+                        <Button layoutX="14.0" layoutY="113.0" mnemonicParsing="false" onAction="#switchToaddRoomandService" styleClass="ButtonManger" stylesheets="@../CSS/Style.css" text="Add Service" />
+                        <Button layoutX="126.0" layoutY="38.0" mnemonicParsing="false" onAction="#switchTologin" styleClass="ButtonManger" stylesheets="@../CSS/Style.css" text="Remove Booking" />
+                        <Button layoutX="126.0" layoutY="77.0" mnemonicParsing="false" onAction="#switchToremoveRoomandService" styleClass="ButtonManger" stylesheets="@../CSS/Style.css" text="Remove Room" />
+                        <Button layoutX="126.0" layoutY="113.0" mnemonicParsing="false" onAction="#switchToremoveRoomandService" styleClass="ButtonManger" stylesheets="@../CSS/Style.css" text="Remove Service" />
                     </children>
                 </AnchorPane>
                 <AnchorPane layoutX="303.0" layoutY="25.0" prefHeight="426.0" prefWidth="422.0">
