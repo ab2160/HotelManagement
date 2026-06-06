@@ -27,7 +27,7 @@
                   <TextField fx:id="phoneField" layoutX="288.0" layoutY="204.0" promptText="Phone number" styleClass="Textfield" stylesheets="@../CSS/Style.css" />
                   <Button layoutX="378.0" layoutY="256.0" mnemonicParsing="false" onAction="#registerManager" text="Register" />
                   <Hyperlink layoutX="69.0" layoutY="303.0" onAction="#switchTologin" styleClass="Hyperlink" stylesheets="@../CSS/Style.css" text="Already have an account" />
-                  <ImageView fitHeight="29.0" fitWidth="35.0" layoutX="26.0" layoutY="32.0" onMouseClicked="#switchTomanager1" pickOnBounds="true" preserveRatio="true" styleClass="close">
+                  <ImageView fitHeight="29.0" fitWidth="35.0" layoutX="26.0" layoutY="32.0" onMouseClicked="#switchTonewmanager" pickOnBounds="true" preserveRatio="true" styleClass="close">
                      <image>
                         <Image url="@../Images/back.png" />
                      </image>

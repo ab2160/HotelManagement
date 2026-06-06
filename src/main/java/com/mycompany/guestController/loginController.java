@@ -3,6 +3,7 @@ package com.mycompany.guestController;
 import com.mycompany.dao.DatabaseConnection;
 import com.mycompany.dao.UserConnection;
 import com.mycompany.managerController.manager1Controller;
+import com.mycompany.managerController.newManagerController;
 import com.mycompany.waiterController.waiter1Controller;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -97,11 +98,11 @@ public class loginController {
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
                 if (role.equals("Manager")) {
-                    loader = new FXMLLoader(getClass().getResource("/managerFxml/manager1.fxml"));
+                    loader = new FXMLLoader(getClass().getResource("/managerFxml/newManagerFxml.fxml"));
                     root = loader.load();
                     scene = new Scene(root);
 
-                    manager1Controller welcomeController = loader.getController();
+                    newManagerController welcomeController = loader.getController();
                     try (Connection con = DatabaseConnection.getConnection()) {
                         PreparedStatement P = con.prepareStatement("SELECT f_name FROM User WHERE user_name = ?");
                         P.setString(1, uname);

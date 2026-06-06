@@ -90,4 +90,6 @@
     -fx-background-color:#2B3331;
 }
 
-
+.sidebaricon{
+    -fx-alignment:BOTTOM_LEFT;
+}

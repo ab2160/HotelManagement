@@ -99,9 +99,9 @@ public class registerController {
     }
 
     @FXML
-    public void switchTomanager1(MouseEvent event) {
+    public void switchTonewmanager(MouseEvent event) {
         try {
-            root = FXMLLoader.load(getClass().getResource("/managerFxml/manager1.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/managerFxml/newManagerFxml.fxml"));
             Scene scene = new Scene(root);
 
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

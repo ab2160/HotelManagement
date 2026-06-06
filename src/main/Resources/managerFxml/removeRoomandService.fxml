@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/26" fx:controller="com.mycompany.managerController.removeRoomandServiceController">
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.managerController.removeRoomandServiceController">
    <children>
       <AnchorPane layoutX="7.0" layoutY="7.0" prefHeight="700.0" prefWidth="800.0" styleClass="registerScene" stylesheets="@../CSS/Style.css" AnchorPane.bottomAnchor="-11.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -44,7 +43,7 @@
                   </TableView>
                   <Button layoutX="473.0" layoutY="328.0" mnemonicParsing="false" onAction="#removeRoom" text="Remove" />
                   <Button layoutX="289.0" layoutY="609.0" mnemonicParsing="false" onAction="#removeService" text="Remove" />
-                  <ImageView fitHeight="85.0" fitWidth="40.0" layoutX="32.0" layoutY="28.0" onMouseClicked="#switchTomanager1" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="85.0" fitWidth="40.0" layoutX="32.0" layoutY="28.0" onMouseClicked="#switchToNewmanager" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Images/back.png" />
                      </image>

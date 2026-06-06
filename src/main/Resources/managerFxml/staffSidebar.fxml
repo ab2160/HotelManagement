@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/26" fx:controller="com.mycompany.managerController.staffSidebarController">
+   <children>
+      <AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="loginScene" stylesheets="@../CSS/Style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label layoutX="103.0" layoutY="87.0" text="Registered Staff">
+                     <font>
+                        <Font name="Arial" size="40.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="userTable" layoutX="103.0" layoutY="154.0" prefHeight="200.0" prefWidth="341.0">
+                    <columns>
+                        <TableColumn fx:id="colUserName" prefWidth="75.0" text="User Name" />
+                      <TableColumn fx:id="colFirstName" prefWidth="81.60003662109375" text="First Name" />
+                      <TableColumn fx:id="colLastName" prefWidth="81.5999755859375" text="Last  Name" />
+                        <TableColumn fx:id="colPhoneNumber" prefWidth="102.39996337890625" text="Phone Number" />
+                    </columns>
+                  </TableView>
+                  <ImageView fitHeight="47.0" fitWidth="41.0" layoutX="43.0" layoutY="40.0" onMouseClicked="#switchToNewmanager" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/back.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
