@@ -161,4 +161,23 @@ public class removeRoomandServiceController {
             e.printStackTrace();
         }
     }
+    
+    @FXML
+    public void switchToWaiter1(MouseEvent event) {
+        try {
+            root = FXMLLoader.load(getClass().getResource("/waiterFxml/waiter1.fxml"));
+            Scene scene = new Scene(root);
+
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+
+            String css = getClass().getResource("/CSS/Style.css").toExternalForm();
+            scene.getStylesheets().add(css);
+
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

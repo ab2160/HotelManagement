@@ -315,4 +315,23 @@ public class newManagerController {
             e.printStackTrace();
         }
     } 
+    
+        @FXML
+    public void switchToremoveBookingandCheckout(ActionEvent event) {
+        try {
+            root = FXMLLoader.load(getClass().getResource("/managerFxml/removeBookingandCheckout.fxml"));
+            Scene scene = new Scene(root);
+
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+
+            String css = getClass().getResource("/CSS/Style.css").toExternalForm();
+            scene.getStylesheets().add(css);
+
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

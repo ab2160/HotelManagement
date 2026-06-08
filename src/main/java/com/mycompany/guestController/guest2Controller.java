@@ -118,6 +118,10 @@ public class guest2Controller {
             Scene scene = new Scene(root);
             Booking selectedBooking = bookingTable.getSelectionModel().getSelectedItem();
             if (selectedBooking == null) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("No booking Service");
+                alert.setContentText("Please select a booking to proceed.");
+                alert.showAndWait();
                 System.out.println("Please select a booking first.");
                 return;
             } else if (selectedBooking != null) {
@@ -150,7 +154,7 @@ public class guest2Controller {
 
             String css = getClass().getResource("/CSS/Style.css").toExternalForm();
             scene.getStylesheets().add(css);
-            
+
             stage.getIcons().add(new Image(getClass().getResourceAsStream("/Images/Hotel.png")));
             stage.setTitle("Hotel Management System");
             stage.show();
@@ -171,7 +175,7 @@ public class guest2Controller {
 
             String css = getClass().getResource("/CSS/Style.css").toExternalForm();
             scene.getStylesheets().add(css);
-            
+
             stage.getIcons().add(new Image(getClass().getResourceAsStream("/Images/Hotel.png")));
             stage.setTitle("Hotel Management System");
             stage.show();

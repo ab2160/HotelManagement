@@ -173,6 +173,7 @@ public class guest5Controller {
                     alert.setContentText("Total amount paid: " + selectedPayment.getTotalAmount());
                     alert.showAndWait();
                     System.out.println("Check out successful.");
+                    paymentTable.getItems().remove(selectedPayment);
                 } else {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Failed");
@@ -182,7 +183,6 @@ public class guest5Controller {
             } else {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("No payment found");
-                System.out.println("No payment found for Booking id: " + selectedBooking.getBookingid());
                 System.out.println("No payment found for Booking id: " + bookingId);
             }
         }

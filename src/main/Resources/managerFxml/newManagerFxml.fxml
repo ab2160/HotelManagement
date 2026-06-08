@@ -14,7 +14,7 @@
 
 <BorderPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="885.0" styleClass="registerScene" stylesheets="@../CSS/Style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.managerController.newManagerController">
     <left>
-        <VBox fx:id="sideBar" prefHeight="503.0" prefWidth="128.0" styleClass="sidebar" stylesheets="@../CSS/newManagerStyle.css" BorderPane.alignment="CENTER">
+        <VBox fx:id="sideBar" prefHeight="506.0" prefWidth="190.0" styleClass="sidebar" stylesheets="@../CSS/newManagerStyle.css" BorderPane.alignment="CENTER">
             <children>
                 <Label styleClass="sidebarLable" stylesheets="@../CSS/newManagerStyle.css" text="Dashboard" />
             <Button mnemonicParsing="false" onAction="#switchTohome" styleClass="sidebar-button" stylesheets="@../CSS/newManagerStyle.css" text="Home" />
@@ -22,7 +22,7 @@
                 <Button mnemonicParsing="false" onAction="#switchTostaffSidebar" styleClass="sidebar-button" stylesheets="@../CSS/managernewstyle.css" text="Staff" />
                 <Button mnemonicParsing="false" onAction="#switchToremoveRoomandService" styleClass="sidebar-button" stylesheets="@../CSS/managernewstyle.css" text="Rooms" />
                 <Button mnemonicParsing="false" onAction="#switchToremoveRoomandService" styleClass="sidebar-button" stylesheets="@../CSS/managernewstyle.css" text="Services" />
-                <Button mnemonicParsing="false" onAction="#switchTologin" styleClass="sidebar-button" stylesheets="@../CSS/managernewstyle.css" text="Check Out" />
+                <Button mnemonicParsing="false" onAction="#switchToremoveBookingandCheckout" styleClass="sidebar-button" stylesheets="@../CSS/managernewstyle.css" text="Check Out" />
             </children>
         </VBox>
     </left>
@@ -51,9 +51,9 @@
         </HBox>
     </top>
     <center>
-        <AnchorPane fx:id="mainContent" prefHeight="500.0" prefWidth="758.0" BorderPane.alignment="CENTER">
+        <AnchorPane fx:id="mainContent" prefHeight="506.0" prefWidth="698.0" BorderPane.alignment="CENTER">
             <children>
-                <AnchorPane layoutX="14.0" layoutY="25.0" prefHeight="200.0" prefWidth="277.0">
+                <AnchorPane layoutX="68.0" layoutY="25.0" prefHeight="200.0" prefWidth="277.0">
                     <children>
                         <Label layoutX="12.0" layoutY="2.0" text="Register and Remove Users">
                      <font>
@@ -67,7 +67,7 @@
                         <Button layoutX="138.0" layoutY="121.0" mnemonicParsing="false" onAction="#switchToremoveUser" styleClass="ButtonManger" stylesheets="@../CSS/Style.css" text="Remove Manager" />
                     </children>
                 </AnchorPane>
-                <AnchorPane layoutX="14.0" layoutY="250.0" prefHeight="180.0" prefWidth="251.0">
+                <AnchorPane layoutX="68.0" layoutY="253.0" prefHeight="180.0" prefWidth="251.0">
                     <children>
                         <Label layoutX="7.0" layoutY="2.0" text="Manage Rooms and Services">
                      <font>
@@ -76,18 +76,18 @@
                         <Button layoutX="14.0" layoutY="38.0" mnemonicParsing="false" onAction="#switchToregister" styleClass="ButtonManger" stylesheets="@../CSS/Style.css" text="Add Booking" />
                         <Button layoutX="14.0" layoutY="74.0" mnemonicParsing="false" onAction="#switchToaddRoomandService" styleClass="ButtonManger" stylesheets="@../CSS/Style.css" text="Add Room" />
                         <Button layoutX="14.0" layoutY="113.0" mnemonicParsing="false" onAction="#switchToaddRoomandService" styleClass="ButtonManger" stylesheets="@../CSS/Style.css" text="Add Service" />
-                        <Button layoutX="126.0" layoutY="38.0" mnemonicParsing="false" onAction="#switchTologin" styleClass="ButtonManger" stylesheets="@../CSS/Style.css" text="Remove Booking" />
+                        <Button layoutX="126.0" layoutY="38.0" mnemonicParsing="false" onAction="#switchToremoveBookingandCheckout" styleClass="ButtonManger" stylesheets="@../CSS/Style.css" text="Remove Booking" />
                         <Button layoutX="126.0" layoutY="77.0" mnemonicParsing="false" onAction="#switchToremoveRoomandService" styleClass="ButtonManger" stylesheets="@../CSS/Style.css" text="Remove Room" />
                         <Button layoutX="126.0" layoutY="113.0" mnemonicParsing="false" onAction="#switchToremoveRoomandService" styleClass="ButtonManger" stylesheets="@../CSS/Style.css" text="Remove Service" />
                     </children>
                 </AnchorPane>
-                <AnchorPane layoutX="303.0" layoutY="25.0" prefHeight="426.0" prefWidth="422.0">
+                <AnchorPane layoutX="351.0" layoutY="25.0" prefHeight="426.0" prefWidth="360.0">
                     <children>
-                        <Label layoutX="78.0" layoutY="14.0" text="Available Booking Information">
+                        <Label layoutX="48.0" layoutY="14.0" text="Available Booking Information">
                      <font>
                         <Font name="Arial" size="20.0" />
                      </font></Label>
-                        <TableView fx:id="infoTable" layoutX="52.0" layoutY="40.0" prefHeight="200.0" prefWidth="317.0">
+                        <TableView fx:id="infoTable" layoutX="21.0" layoutY="48.0" prefHeight="200.0" prefWidth="317.0">
                             <columns>
                                 <TableColumn fx:id="colBookingId" prefWidth="75.0" text="Booking Id" />
                                 <TableColumn fx:id="colRoomNum" prefWidth="68.79998779296875" text="Room" />
