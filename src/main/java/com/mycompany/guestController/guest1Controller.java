@@ -86,8 +86,23 @@ public class guest1Controller {
     public void addBooking(ActionEvent event) {
         Room selectedRoom = roomTable.getSelectionModel().getSelectedItem();
         LocalDate checkin = checkin_date.getValue();
-        if (selectedRoom == null || checkin == null) {
-            System.out.println("Please select a check in date and room.");
+        if (checkin == null) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Missing information");
+            alert.setHeaderText("Booking not specified.");
+            alert.setContentText("Please select a check in date.");
+            alert.showAndWait();
+            System.out.println("Please select a check in date.");
+            return;
+        }
+
+        if (selectedRoom == null) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Missing information");
+            alert.setHeaderText("Room not selected.");
+            alert.setContentText("Please select a room available in the table.");
+            alert.showAndWait();
+            System.out.println("Please select a room available in the table.");
             return;
         }
 
