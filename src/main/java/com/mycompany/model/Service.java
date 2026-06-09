@@ -2,11 +2,11 @@ package com.mycompany.model;
 
 public class Service {
 
-    protected int service_id;
-    protected String service_type;
-    protected double service_price;
-    protected String service_status;
-    protected int booking_id;
+    private int service_id;
+    private String service_type;
+    private double service_price;
+    private String service_status;
+    private int booking_id;
 
     public Service() {
     }

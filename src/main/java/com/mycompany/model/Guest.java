@@ -2,7 +2,7 @@ package com.mycompany.model;
 
 public class Guest extends User {
 
-    protected int guest_id;
+    private int guest_id;
 
     public Guest() {
     }

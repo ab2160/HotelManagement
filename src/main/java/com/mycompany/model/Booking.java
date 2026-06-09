@@ -4,9 +4,9 @@ import java.util.Date;
 
 public class Booking {
 
-    protected int booking_id;
-    protected Date checkin_date;
-    protected int room_num;
+    private int booking_id;
+    private Date checkin_date;
+    private int room_num;
 
     public Booking() {
     }

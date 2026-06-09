@@ -2,7 +2,7 @@ package com.mycompany.model;
 
 public class Waiter extends User {
 
-    protected int waiter_id;
+    private int waiter_id;
 
     public Waiter() {
     }

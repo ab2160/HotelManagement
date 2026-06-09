@@ -2,10 +2,10 @@ package com.mycompany.model;
 
 public class Manager extends User {
 
-    protected int manager_id;
-    protected int room_num;
-    protected int waiter_id;
-    protected int guest_id;
+    private int manager_id;
+    private int room_num;
+    private int waiter_id;
+    private int guest_id;
 
     public Manager() {
     }

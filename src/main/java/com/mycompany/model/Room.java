@@ -2,11 +2,11 @@ package com.mycompany.model;
 
 public class Room {
 
-    protected int room_num;
-    protected String room_status;
-    protected String class_name;
-    protected String bed_type;
-    protected double room_price;
+    private int room_num;
+    private String room_status;
+    private String class_name;
+    private String bed_type;
+    private double room_price;
 
     public Room() {
     }

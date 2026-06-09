@@ -4,11 +4,11 @@ import java.util.Date;
 
 
 public class Payment {
-    protected int payment_id;
-    protected int booking_id;
-    protected double total_amount;
-    protected Date payment_date;
-    protected String payment_status;
+    private int payment_id;
+    private int booking_id;
+    private double total_amount;
+    private Date payment_date;
+    private String payment_status;
     
     public Payment(){}
     public Payment(int payment_id, int booking_id, double total_amount, Date payment_date, String payment_status)
