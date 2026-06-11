@@ -16,6 +16,17 @@ public class Guest extends User {
         this.phone_num = phone_num;
     }
     
+    public Guest(int guest_id, String f_name, String l_name, String user_name, String password, String phone_num, String role)
+    {
+        this.guest_id = guest_id;
+        this.f_name = f_name;
+        this.l_name = l_name;
+        this.user_name = user_name;
+        this.password = password;
+        this.phone_num = phone_num;
+        this.role = role;
+    }
+    
     public Guest(String user_name, String password)
     {
         this.user_name = user_name;

@@ -176,9 +176,9 @@ public class newManagerController {
     }
     
     @FXML
-    public void switchToManagerregister(ActionEvent event) {
+    public void switchToNewregister(ActionEvent event) {
         try {
-            root = FXMLLoader.load(getClass().getResource("/managerFxml/registerManager.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/managerFxml/newRegister.fxml"));
             Scene scene = new Scene(root);
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 

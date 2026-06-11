@@ -59,9 +59,9 @@
                      <font>
                         <Font name="Arial" size="20.0" />
                      </font></Label>
-                        <Button layoutX="14.0" layoutY="41.0" mnemonicParsing="false" onAction="#switchToregister" styleClass="ButtonManger" stylesheets="@../CSS/Style.css" text="Register Guest" />
-                        <Button layoutX="14.0" layoutY="81.0" mnemonicParsing="false" onAction="#switchToWaiterregister" styleClass="ButtonManger" stylesheets="@../CSS/Style.css" text="Register Waiter" />
-                        <Button layoutX="14.0" layoutY="121.0" mnemonicParsing="false" onAction="#switchToManagerregister" styleClass="ButtonManger" stylesheets="@../CSS/Style.css" text="Register Manager" />
+                        <Button layoutX="14.0" layoutY="41.0" mnemonicParsing="false" onAction="#switchToNewregister" styleClass="ButtonManger" stylesheets="@../CSS/Style.css" text="Register Guest" />
+                        <Button layoutX="14.0" layoutY="81.0" mnemonicParsing="false" onAction="#switchToNewregister" styleClass="ButtonManger" stylesheets="@../CSS/Style.css" text="Register Waiter" />
+                        <Button layoutX="14.0" layoutY="121.0" mnemonicParsing="false" onAction="#switchToNewregister" styleClass="ButtonManger" stylesheets="@../CSS/Style.css" text="Register Manager" />
                         <Button layoutX="138.0" layoutY="41.0" mnemonicParsing="false" onAction="#switchToremoveUser" styleClass="ButtonManger" stylesheets="@../CSS/Style.css" text="Remove Guest" />
                         <Button layoutX="138.0" layoutY="81.0" mnemonicParsing="false" onAction="#switchToremoveUser" styleClass="ButtonManger" stylesheets="@../CSS/Style.css" text="Remove Waiter" />
                         <Button layoutX="138.0" layoutY="121.0" mnemonicParsing="false" onAction="#switchToremoveUser" styleClass="ButtonManger" stylesheets="@../CSS/Style.css" text="Remove Manager" />
