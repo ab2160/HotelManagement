@@ -12,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -43,6 +44,10 @@ public class addRoomandServiceController {
                 classnameField.requestFocus();
             }
         });
+        roompriceField.setTextFormatter(new TextFormatter<>(change ->
+        change.getControlNewText().matches("\\d*") ? change : null));
+        servicepriceField.setTextFormatter(new TextFormatter<>(change ->
+        change.getControlNewText().matches("\\d*") ? change : null));
         classnameField.setOnKeyPressed((KeyEvent t) -> {
             if (t.getCode() == KeyCode.UP) {
                 roomstatusField.requestFocus();

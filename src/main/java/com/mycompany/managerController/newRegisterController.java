@@ -14,6 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -60,6 +61,8 @@ public class newRegisterController {
                 usernameField.requestFocus();
             }
         });
+        phoneField.setTextFormatter(new TextFormatter<>(change ->
+        change.getControlNewText().matches("\\d*") ? change : null));
         usernameField.setOnKeyPressed(e -> {
             if (e.getCode() == KeyCode.UP) {
                 lastnameField.requestFocus();
