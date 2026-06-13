@@ -1,21 +1,21 @@
 # ![Hotel Icon](src/main/Resources/Images/Hotel.png) Hotel Management System
 
-A JavaFX desktop application built as part of an Object-Oriented Programming (OOP) course project at St. Mary University.  
-This system demonstrates MVC architecture, DAO pattern, and JDBC integration with MySQL for managing hotel operations.
+A JavaFX desktop application built as part of an Object-Oriented Programming (OOP) course project.  
+This system demonstrates MVC architecture, DAO pattern and JDBC integration with MySQL for managing hotel operations.
 
 ## Features
 - Room Management (CRUD)
-  - Add, update, delete, and view rooms with details (number, type, price, status).
+  - Add, update, delete and view rooms with details (number, type, price, status).
 - Reservation Management (CRUD)
-  - Create, update, cancel, and view reservations.
+  - Create, update, cancel and view reservations.
 - Billing
   - Generate bills including room charges and service charges.
   - Support for payments (cash).
 - Service Requests
-  - Guests can request food, drinks, laundry, and other services.
+  - Guests can request food, drinks, laundry and other services.
   - Waiters can manage and update service statuses.
 - Authentication
-  - Login system for Manager, Guest, and Waiter roles.
+  - Login system for Manager, Guest and Waiter roles.
 - User Accounts
   - Staff members (Manager, Waiter) and Guests have separate accounts with role-based access.
 
