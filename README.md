@@ -1,4 +1,4 @@
-# Hotel Management System
+# ![Hotel Icon](src/main/Resources/Images/Hotel.png) Hotel Management System
 
 A JavaFX desktop application built as part of an Object-Oriented Programming (OOP) course project at St. Mary University.  
 This system demonstrates MVC architecture, DAO pattern, and JDBC integration with MySQL for managing hotel operations.
@@ -29,13 +29,14 @@ This system demonstrates MVC architecture, DAO pattern, and JDBC integration wit
 
 ## 📂 Project Structure
 
+```
 HotelManagement/
 ├── src/com/mycompany/model/        # Entity classes (User, Manager, Guest, Room, Service, Payment, etc.)
 ├── src/com/mycompany/controller/   # Controllers for Manager, Guest, Waiter
 ├── src/com/mycompany/dao/          # DAO classes for database operations
 ├── resources/                      # FXML files and UI resources
 └── README.md                       # Project documentation
-
+```
 ---
 
 ## Getting Started
