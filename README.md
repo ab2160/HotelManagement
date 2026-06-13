@@ -48,3 +48,4 @@ HotelManagement/
 ### Setup
 1. Clone the repository:
    ```bash
+   git clone https://github.com/ab2160/HotelManagement.git
