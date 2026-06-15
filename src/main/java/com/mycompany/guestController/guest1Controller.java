@@ -105,6 +105,14 @@ public class guest1Controller {
             System.out.println("Please select a room available in the table.");
             return;
         }
+        if (checkin.isBefore(LocalDate.now())) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Invalid Date");
+            alert.setHeaderText("Invalid Check-in Date");
+            alert.setContentText("Check-in date cannot be in the past.");
+            alert.showAndWait();
+            return;
+        }
 
         try {
             java.util.Date Checkin = java.util.Date.from(
