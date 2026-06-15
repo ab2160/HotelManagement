@@ -36,6 +36,13 @@ public class guest2Controller {
     Parent root;
     Stage stage;
 
+    private int currentGuestId;
+
+    public void setCurrentGuestId(int guestId) {
+        this.currentGuestId = guestId;
+        initialize();
+    }
+
     @FXML
     public void initialize() {
         colBookingid.setCellValueFactory(new PropertyValueFactory<>("bookingid"));
@@ -44,7 +51,14 @@ public class guest2Controller {
 
         ObservableList<Booking> reservedBookings = FXCollections.observableArrayList();
         try (Connection con = DatabaseConnection.getConnection()) {
-            PreparedStatement P = con.prepareStatement("SELECT booking_id, checkin_date, room_num FROM Booking;");
+            PreparedStatement P = con.prepareStatement(
+                    "SELECT b.booking_id, b.checkin_date, b.room_num "
+                    + "FROM Booking b "
+                    + "JOIN Guest_booking gb ON b.booking_id = gb.booking_id "
+                    + "JOIN Guest g ON gb.guest_id = g.guest_id "
+                    + "WHERE g.guest_id = ?"
+            );
+            P.setInt(1, currentGuestId);
             ResultSet r = P.executeQuery();
             while (r.next()) {
                 Booking book = new Booking(
@@ -92,8 +106,12 @@ public class guest2Controller {
     @FXML
     public void switchToguest1(MouseEvent event) {
         try {
-            root = FXMLLoader.load(getClass().getResource("/guestFxml/guest1.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/guestFxml/guest1.fxml"));
+            root = loader.load();
             Scene scene = new Scene(root);
+
+            guest1Controller bookingController = loader.getController();
+            bookingController.setCurrentGuestId(currentGuestId);
 
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);
@@ -115,6 +133,9 @@ public class guest2Controller {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/guestFxml/guest3.fxml"));
             root = loader.load();
+
+            guest3Controller bookingController = loader.getController();
+            bookingController.setCurrentGuestId(currentGuestId);
             Scene scene = new Scene(root);
             Booking selectedBooking = bookingTable.getSelectionModel().getSelectedItem();
             if (selectedBooking == null) {
@@ -146,8 +167,12 @@ public class guest2Controller {
     @FXML
     public void switchToguest4(MouseEvent event) {
         try {
-            root = FXMLLoader.load(getClass().getResource("/guestFxml/guest4.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/guestFxml/guest4.fxml"));
+            root = loader.load();
             Scene scene = new Scene(root);
+
+            guest4Controller bookingController = loader.getController();
+            bookingController.setCurrentGuestId(currentGuestId);
 
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);
@@ -167,8 +192,12 @@ public class guest2Controller {
     @FXML
     public void switchToguest5(MouseEvent event) {
         try {
-            root = FXMLLoader.load(getClass().getResource("/guestFxml/guest5.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/guestFxml/guest5.fxml"));
+            root = loader.load();
             Scene scene = new Scene(root);
+
+            guest5Controller bookingController = loader.getController();
+            bookingController.setCurrentGuestId(currentGuestId);
 
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);

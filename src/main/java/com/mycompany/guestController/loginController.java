@@ -120,12 +120,18 @@ public class loginController {
 
                     guest1Controller welcomeController = loader.getController();
                     try (Connection con = DatabaseConnection.getConnection()) {
-                        PreparedStatement P = con.prepareStatement("SELECT f_name FROM User WHERE user_name = ?");
+                        PreparedStatement P = con.prepareStatement(
+                                "SELECT g.guest_id, u.f_name "
+                                + "FROM Guest g "
+                                + "JOIN User u ON g.user_name = u.user_name "
+                                + "WHERE g.user_name = ?");
                         P.setString(1, uname);
                         ResultSet r = P.executeQuery();
                         if (r.next()) {
                             String fname = r.getString("f_name");
+                            int guestId = r.getInt("guest_id");
                             welcomeController.displayGuest(fname);
+                            welcomeController.setCurrentGuestId(guestId);
                         }
                     }
                 } else if (role.equals("Waiter")) {

@@ -53,6 +53,12 @@ public class guest1Controller {
         welcomelabel.setText("Welcome Guest " + name);
     }
 
+    private int currentGuestId;
+
+    public void setCurrentGuestId(int guestId) {
+        this.currentGuestId = guestId;
+    }
+
     @FXML
     public void initialize() {
         colRoomNum.setCellValueFactory(new PropertyValueFactory<>("roomnum"));
@@ -122,6 +128,7 @@ public class guest1Controller {
             Booking B = new Booking();
             B.setCheckin(Checkin);
             B.setRoomnum(selectedRoom.getRoomnum());
+            B.setGuestId(currentGuestId);
             BookingConnection BC = new BookingConnection();
             boolean success = BC.addBooking(B);
             if (success) {
@@ -168,8 +175,12 @@ public class guest1Controller {
     @FXML
     public void switchToguest2(MouseEvent event) {
         try {
-            root = FXMLLoader.load(getClass().getResource("/guestFxml/guest2.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/guestFxml/guest2.fxml"));
+            root = loader.load();
             Scene scene = new Scene(root);
+
+            guest2Controller bookingController = loader.getController();
+            bookingController.setCurrentGuestId(currentGuestId);
 
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);
@@ -189,8 +200,12 @@ public class guest1Controller {
     @FXML
     public void switchToguest4(MouseEvent event) {
         try {
-            root = FXMLLoader.load(getClass().getResource("/guestFxml/guest4.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/guestFxml/guest4.fxml"));
+            root = loader.load();
             Scene scene = new Scene(root);
+
+            guest4Controller bookingController = loader.getController();
+            bookingController.setCurrentGuestId(currentGuestId);
 
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);
@@ -210,8 +225,12 @@ public class guest1Controller {
     @FXML
     public void switchToguest5(MouseEvent event) {
         try {
-            root = FXMLLoader.load(getClass().getResource("/guestFxml/guest5.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/guestFxml/guest5.fxml"));
+            root = loader.load();
             Scene scene = new Scene(root);
+
+            guest5Controller bookingController = loader.getController();
+            bookingController.setCurrentGuestId(currentGuestId);
 
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);

@@ -63,7 +63,7 @@ public class BookingConnection {
 
     public Boolean addBooking(Booking B) {
         Connection con = null;
-        PreparedStatement P1 = null, P2 = null, P3 = null;
+        PreparedStatement P1 = null, P2 = null, P3 = null, P4 = null;
         try {
             con = DatabaseConnection.getConnection();
             String bookingAdd = "INSERT INTO Booking (checkin_date, room_num) VALUES(?, ?)";
@@ -98,8 +98,20 @@ public class BookingConnection {
 
                     int z = P3.executeUpdate();
                     if (z > 0) {
-                        System.out.println("Booked successfully. Payment initialized as Pending.");
-                        return true;
+                        // Insert Guest_booking 
+                        String guestBookingInsert = "INSERT INTO Guest_booking (guest_id, booking_id) VALUES (?, ?)";
+                        P4 = con.prepareStatement(guestBookingInsert);
+                        P4.setInt(1, B.getGuestId());
+                        P4.setInt(2, B.getBookingid());
+                        int w = P4.executeUpdate();
+                        
+                        if (w > 0) {
+                            System.out.println("Booked successfully. Payment initialized as Pending.");
+                            return true;
+                        } else {
+                            System.out.println("Failed to insert Guest_booking row.");
+                            return false;
+                        }
                     } else {
                         System.out.println("Payment insert failed.");
                         return false;
@@ -116,6 +128,14 @@ public class BookingConnection {
             e.printStackTrace();
             return false;
         } finally {
+            try {
+                if (P4 != null) {
+                    P4.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            
             try {
                 if (P3 != null) {
                     P3.close();
@@ -154,6 +174,12 @@ public class BookingConnection {
 
     public boolean removeBooking(int bookingId, int roomNum) {
         try (Connection con = DatabaseConnection.getConnection()) {
+            // 0. Remove guest_booking link
+            String guestBookingRemove = "DELETE FROM Guest_booking WHERE booking_id = ?";
+            PreparedStatement P0 = con.prepareStatement(guestBookingRemove);
+            P0.setInt(1, bookingId);
+            P0.executeUpdate();
+            
             // 1. Remove all services linked to this booking
             String serviceRemove = "DELETE FROM Service WHERE booking_id = ?";
             PreparedStatement P1 = con.prepareStatement(serviceRemove);
