@@ -73,7 +73,7 @@
                      <font>
                         <Font name="Arial" size="18.0" />
                      </font></Label>
-                        <Button layoutX="14.0" layoutY="38.0" mnemonicParsing="false" onAction="#switchToregister" styleClass="ButtonManger" stylesheets="@../CSS/Style.css" text="Add Booking" />
+                        <Button layoutX="14.0" layoutY="38.0" mnemonicParsing="false" onAction="#switchToNewregister" styleClass="ButtonManger" stylesheets="@../CSS/Style.css" text="Add Booking" />
                         <Button layoutX="14.0" layoutY="74.0" mnemonicParsing="false" onAction="#switchToaddRoomandService" styleClass="ButtonManger" stylesheets="@../CSS/Style.css" text="Add Room" />
                         <Button layoutX="14.0" layoutY="113.0" mnemonicParsing="false" onAction="#switchToaddRoomandService" styleClass="ButtonManger" stylesheets="@../CSS/Style.css" text="Add Service" />
                         <Button layoutX="126.0" layoutY="38.0" mnemonicParsing="false" onAction="#switchToremoveBookingandCheckout" styleClass="ButtonManger" stylesheets="@../CSS/Style.css" text="Remove Booking" />

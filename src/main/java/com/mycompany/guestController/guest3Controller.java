@@ -48,6 +48,7 @@ public class guest3Controller {
         }
         serviceChoiceBox.setItems(availableServices);
 
+        //com.mycompany.model.Service@4a5f6b
         serviceChoiceBox.setConverter(new StringConverter<Service>() {
             @Override
             public String toString(Service t) {
