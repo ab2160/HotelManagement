@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.managerController.manager1Controller">
+   <children>
+      <AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="registerScene" stylesheets="@../CSS/Style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label fx:id="welcomelabel" layoutX="79.0" layoutY="117.0" text="Welcome">
+                     <font>
+                        <Font name="Arial" size="40.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="79.0" layoutY="57.0" text="Hotel Management System">
+                     <font>
+                        <Font name="Arial" size="40.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="75.0" layoutY="184.0" text="1. Register Guest">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="75.0" layoutY="225.0" text="2. Register Manager">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="75.0" layoutY="270.0" text="3. Register Waiter">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="390.0" layoutY="184.0" text="4. Remove Guest">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="390.0" layoutY="225.0" text="5. Remove Manager">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="390.0" layoutY="270.0" text="6. Remove Waiter">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="285.0" layoutY="188.0" mnemonicParsing="false" onAction="#switchToregister" styleClass="ButtonManger" stylesheets="@../CSS/Style.css" text="Register" />
+                  <Button layoutX="285.0" layoutY="230.0" mnemonicParsing="false" onAction="#switchToManagerregister" styleClass="ButtonManger" stylesheets="@../CSS/Style.css" text="Register" />
+                  <Button layoutX="285.0" layoutY="274.0" mnemonicParsing="false" onAction="#switchToWaiterregister" styleClass="ButtonManger" stylesheets="@../CSS/Style.css" text="Register" />
+                  <Button layoutX="614.0" layoutY="229.0" mnemonicParsing="false" onAction="#switchToremoveUser" styleClass="ButtonManger" stylesheets="@../CSS/Style.css" text="Remove">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Button>
+                  <Label layoutX="75.0" layoutY="350.0" text="7. Add Room">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="75.0" layoutY="432.0" text="9. Add Booking">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="75.0" layoutY="391.0" text="8. Add Service">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="290.0" layoutY="375.0" mnemonicParsing="false" onAction="#switchToaddRoomandService" styleClass="ButtonManger" stylesheets="@../CSS/Style.css" text="Add">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Button>
+                  <Button layoutX="295.0" layoutY="436.0" mnemonicParsing="false" onAction="#switchToguest1" styleClass="ButtonManger" stylesheets="@../CSS/Style.css" text="Add" />
+                  <Label layoutX="390.0" layoutY="350.0" text="10. Remove Room">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="390.0" layoutY="432.0" text="12. Remove Booking">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="390.0" layoutY="392.0" text="11. Remove Service">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="614.0" layoutY="378.0" mnemonicParsing="false" onAction="#switchToremoveRoomandService" styleClass="ButtonManger" stylesheets="@../CSS/Style.css" text="Remove">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Button>
+                  <Button layoutX="621.0" layoutY="436.0" mnemonicParsing="false" onAction="#switchToguest2" styleClass="ButtonManger" stylesheets="@../CSS/Style.css" text="Remove" />
+                  <Label layoutX="390.0" layoutY="494.0" text="13. Check Out">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="607.0" layoutY="495.0" mnemonicParsing="false" onAction="#switchToguest5" styleClass="ButtonManger" stylesheets="@../CSS/Style.css" text="Check out">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Button>
+                  <ImageView fitHeight="41.0" fitWidth="38.0" layoutX="28.0" layoutY="31.0" onMouseClicked="#switchTohome" pickOnBounds="true" preserveRatio="true" styleClass="close">
+                     <image>
+                        <Image url="@../Images/back.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

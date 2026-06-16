@@ -7,7 +7,7 @@ public class DatabaseConnection {
 
     public static Connection getConnection() {
         try {
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel_management", "root", "7427421");
+            Connection con = DriverManager.getConnection("jdbc:mysql://192.168.43.21:3306/hotel_management", "kalab", "1234");
             return con;
         } catch (Exception e) {
             e.printStackTrace();

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" stylesheets="@../CSS/Style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.guestController.registerController">
+   <children>
+      <AnchorPane layoutX="14.0" prefHeight="500.0" prefWidth="800.0" styleClass="registerScene" stylesheets="@../CSS/Style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane fx:id="closeIcon" onKeyPressed="#initialize" prefHeight="500.0" prefWidth="800.0" stylesheets="@../CSS/Style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label layoutX="66.0" layoutY="59.0" text="Guest Register">
+                     <font>
+                        <Font name="Arial" size="40.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="firstnameField" layoutX="67.0" layoutY="135.0" prefWidth="150.0" promptText="First name" styleClass="Textfield" stylesheets="@../CSS/Style.css" />
+                  <TextField fx:id="lastnameField" layoutX="67.0" layoutY="190.0" prefWidth="150.0" promptText="Last name" styleClass="Textfield" stylesheets="@../CSS/Style.css" />
+                  <TextField fx:id="usernameField" layoutX="65.0" layoutY="250.0" prefWidth="150.0" promptText="User name" styleClass="Textfield" stylesheets="@../CSS/Style.css" />
+                  <PasswordField fx:id="passwordField" layoutX="291.0" layoutY="135.0" prefWidth="150.0" promptText="Password" styleClass="Textfield" stylesheets="@../CSS/Style.css" />
+                  <TextField fx:id="phoneField" layoutX="291.0" layoutY="190.0" prefWidth="150.0" promptText="Phone number" styleClass="Textfield" stylesheets="@../CSS/Style.css" />
+                  <Button layoutX="379.0" layoutY="251.0" mnemonicParsing="false" onAction="#registerGuest" stylesheets="@../CSS/Style.css" text="Register" />
+                  <Hyperlink layoutX="65.0" layoutY="304.0" onAction="#switchTologin" styleClass="Hyperlink" stylesheets="@../CSS/Style.css" text="Already have an account" />
+                  <ImageView fx:id="closeIcon1" fitHeight="39.0" fitWidth="150.0" layoutX="747.0" layoutY="14.0" onMouseClicked="#registerClose" pickOnBounds="true" preserveRatio="true" styleClass="close">
+                     <image>
+                        <Image url="@../Images/close.png" />
+                     </image>
+                     <effect>
+                        <Bloom />
+                     </effect>
+                  </ImageView>
+                  <ImageView fitHeight="29.0" fitWidth="39.0" layoutX="30.0" layoutY="19.0" onMouseClicked="#switchTohome" pickOnBounds="true" preserveRatio="true" styleClass="close">
+                     <image>
+                        <Image url="@../Images/back.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

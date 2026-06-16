@@ -2,7 +2,7 @@ package com.mycompany.guestController;
 
 import com.mycompany.dao.DatabaseConnection;
 import com.mycompany.dao.UserConnection;
-import com.mycompany.managerController.manager1Controller;
+import com.mycompany.model.CurrentUser;
 import com.mycompany.managerController.newManagerController;
 import com.mycompany.waiterController.waiter1Controller;
 import java.sql.Connection;
@@ -92,6 +92,7 @@ public class loginController {
 
         if (role != null) {
             try {
+                CurrentUser.setUsername(uname);
                 FXMLLoader loader;
                 Parent root;
                 Scene scene = null;

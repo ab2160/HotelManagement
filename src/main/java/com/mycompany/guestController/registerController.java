@@ -1,6 +1,7 @@
 package com.mycompany.guestController;
 
 import com.mycompany.dao.GuestConnection;
+import com.mycompany.model.CurrentUser;  
 import com.mycompany.model.Guest;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -149,6 +150,7 @@ public class registerController {
             GuestConnection GC = new GuestConnection();
             boolean success = GC.saveGuestData(G);
             if (success) {
+                CurrentUser.setUsername(uname); 
                 System.out.println("Guest registered successfully.");
                 try {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/guestFxml/guest1.fxml"));
