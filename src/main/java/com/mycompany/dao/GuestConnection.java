@@ -15,6 +15,7 @@ public class GuestConnection extends com.mycompany.model.User {
             String addUser = "INSERT INTO User(f_name, l_name, user_name, password, phone_num) VALUES (?, ?, ?, ?, ?)";
             String addGuest = "INSERT INTO Guest(user_name) VALUES (?)";
 
+
             P1 = con.prepareStatement(addUser);
             P2 = con.prepareStatement(addGuest);
 
@@ -25,7 +26,9 @@ public class GuestConnection extends com.mycompany.model.User {
             P1.setString(5, G.getPhonenum());
 
             P2.setString(1, G.getUsername());
+
             //P2.setInt(2, G.getGuestid());
+
 
             int x = P1.executeUpdate();
             int y = P2.executeUpdate();
