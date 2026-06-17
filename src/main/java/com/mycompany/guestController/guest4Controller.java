@@ -117,8 +117,25 @@ public class guest4Controller {
             root = loader.load();
             Scene scene = new Scene(root);
 
-            guest1Controller bookingController = loader.getController();
-            bookingController.setCurrentGuestId(currentGuestId);
+            guest1Controller welcomeController = loader.getController();
+
+            try (Connection con = DatabaseConnection.getConnection()) {
+                PreparedStatement P = con.prepareStatement(
+                        "SELECT u.f_name, g.guest_id "
+                        + "FROM Guest g "
+                        + "JOIN User u ON g.user_name = u.user_name "
+                        + "WHERE g.guest_id = ?"
+                );
+                P.setInt(1, currentGuestId);
+                ResultSet r = P.executeQuery();
+                if (r.next()) {
+                    String fname = r.getString("f_name");
+                    welcomeController.displayGuest(fname);
+                    welcomeController.setCurrentGuestId(currentGuestId);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);
@@ -126,12 +143,15 @@ public class guest4Controller {
             String css = getClass().getResource("/CSS/Style.css").toExternalForm();
             scene.getStylesheets().add(css);
 
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("/Images/Hotel.png")));
+            stage.setTitle("Hotel Management System");
             stage.show();
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
 
     @FXML
     public void switchToguest2(MouseEvent event) {

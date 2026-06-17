@@ -195,7 +195,7 @@ public class registerController {
             } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Registration");
-                alert.setContentText("Registration Failed.");
+                alert.setContentText("User with this username already exists.");
                 alert.showAndWait();
                 System.out.println("Registration failed.");
             }

@@ -12,7 +12,7 @@ public class WaiterConnection {
         try {
             con = DatabaseConnection.getConnection();
             String addUser = "INSERT INTO User(f_name, l_name, user_name, password, phone_num) VALUES (?, ?, ?, ?, ?)";
-            String addGuest = "INSERT INTO Waiter(user_name, waiter_id) VALUES (?, ?)";
+            String addGuest = "INSERT INTO Waiter(user_name, waiter_id) VALUES (?)";
 
             P1 = con.prepareStatement(addUser);
             P2 = con.prepareStatement(addGuest);
@@ -24,7 +24,7 @@ public class WaiterConnection {
             P1.setString(5, W.getPhonenum());
 
             P2.setString(1, W.getUsername());
-            P2.setInt(2, W.getWaiterid());
+//            P2.setInt(2, W.getWaiterid());
 
             int x = P1.executeUpdate();
             int y = P2.executeUpdate();
