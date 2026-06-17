@@ -16,6 +16,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -101,15 +102,19 @@ public class removeRoomandServiceController {
     public void removeRoom(ActionEvent event) {
         Room selectedRoom = roomTable.getSelectionModel().getSelectedItem();
         if (selectedRoom == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("No room to remove");
+            alert.setContentText("Please select a room to remove.");
+            alert.showAndWait();
             System.out.println("Please select a room to remove.");
             return;
         }
-        
+
         try {
             int roomNum = selectedRoom.getRoomnum();
             RoomConnection RC = new RoomConnection();
             boolean success = RC.removeRoom(roomNum);
-            
+
             if (success) {
                 System.out.println("Room removed successfully.");
                 roomTable.getItems().remove(selectedRoom);
@@ -120,18 +125,22 @@ public class removeRoomandServiceController {
             e.printStackTrace();
         }
     }
-    
+
     @FXML
     public void removeService(ActionEvent event) {
         Service selectedService = serviceTable.getSelectionModel().getSelectedItem();
         if (selectedService == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("No service to remove");
+            alert.setContentText("Please select a service to remove.");
+            alert.showAndWait();
             System.out.println("Please select a service to remove.");
             return;
         }
         try {
             ServiceConnection SC = new ServiceConnection();
             boolean success = SC.removeService(selectedService);
-            
+
             if (success) {
                 System.out.println("Service removed successfully.");
                 serviceTable.getItems().remove(selectedService);
@@ -142,7 +151,7 @@ public class removeRoomandServiceController {
             e.printStackTrace();
         }
     }
-    
+
     @FXML
     public void switchToNewmanager(MouseEvent event) {
         try {
@@ -161,7 +170,7 @@ public class removeRoomandServiceController {
             e.printStackTrace();
         }
     }
-    
+
     @FXML
     public void switchToWaiter1(MouseEvent event) {
         try {

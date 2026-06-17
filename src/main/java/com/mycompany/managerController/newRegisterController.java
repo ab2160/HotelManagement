@@ -1,11 +1,15 @@
 package com.mycompany.managerController;
 
+import com.mycompany.dao.DatabaseConnection;
 import com.mycompany.dao.GuestConnection;
 import com.mycompany.dao.ManagerConnection;
 import com.mycompany.guestController.guest1Controller;
 import com.mycompany.model.Guest;
 import com.mycompany.model.Manager;
 import com.mycompany.waiterController.waiter1Controller;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +17,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import javafx.scene.image.Image;
@@ -35,7 +40,7 @@ public class newRegisterController {
     @FXML
     private TextField phoneField;
     @FXML
-    private TextField roleField;
+    private ChoiceBox <String>role;
     @FXML
     private ImageView closeIcon4;
     Stage stage;
@@ -61,8 +66,8 @@ public class newRegisterController {
                 usernameField.requestFocus();
             }
         });
-        phoneField.setTextFormatter(new TextFormatter<>(change ->
-        change.getControlNewText().matches("\\d*") ? change : null));
+        phoneField.setTextFormatter(new TextFormatter<>(change
+                -> change.getControlNewText().matches("\\d*") ? change : null));
         usernameField.setOnKeyPressed(e -> {
             if (e.getCode() == KeyCode.UP) {
                 lastnameField.requestFocus();
@@ -83,16 +88,18 @@ public class newRegisterController {
             if (e.getCode() == KeyCode.UP) {
                 passwordField.requestFocus();
             } else if (e.getCode() == KeyCode.DOWN) {
-                roleField.requestFocus();
+                //roleField.requestFocus();
             }
         });
-        roleField.setOnKeyPressed(e -> {
-            if (e.getCode() == KeyCode.UP) {
-                phoneField.requestFocus();
-            } else if (e.getCode() == KeyCode.LEFT) {
-                firstnameField.requestFocus();
-            }
-        });
+        
+        role.getItems().addAll(
+                "Manager",
+                "Waiter",
+                "Guest"
+        );
+
+        role.setValue("Manager");
+
     }
 
     @FXML
@@ -103,9 +110,9 @@ public class newRegisterController {
             String uname = usernameField.getText();
             String pass = passwordField.getText();
             String phone = phoneField.getText();
-            String role = roleField.getText();
+            
 
-            if (fname.isEmpty() || lname.isEmpty() || uname.isEmpty() || pass.isEmpty() || phone.isEmpty() || role.isEmpty()) {
+            if (fname.isEmpty() || lname.isEmpty() || uname.isEmpty() || pass.isEmpty() || phone.isEmpty() || role.getValue()==null) {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Missing Information");
                 alert.setHeaderText("Registration Incomplete");
@@ -114,16 +121,16 @@ public class newRegisterController {
                 return;
             }
 
-            if (role != null) {
+            if (role.getValue() != null) {
                 try {
                     FXMLLoader loader;
                     Parent root;
                     Scene scene = null;
                     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-                    if (role.equals("Manager")) {
+                    if (role.getValue().equals("Manager")) {
                         int managerid = 0;
-                        Manager M = new Manager(managerid, fname, lname, uname, pass, phone, role);
+                        Manager M = new Manager(managerid, fname, lname, uname, pass, phone, "Manager");
                         ManagerConnection MC = new ManagerConnection();
                         boolean success = MC.saveManagerData(M);
                         if (success) {
@@ -139,7 +146,7 @@ public class newRegisterController {
                             alert.showAndWait();
                         }
 
-                    } else if (role.equals("Waiter")) {
+                    } else if (role.getValue().equals("Waiter")) {
                         int waiterid = 0;
                         Manager M = new Manager(waiterid, fname, lname, uname, pass, phone, "Waiter");
                         ManagerConnection MC = new ManagerConnection();
@@ -157,9 +164,9 @@ public class newRegisterController {
                             alert.showAndWait();
                         }
 
-                    } else if (role.equals("Guest")) {
+                    } else if (role.getValue().equals("Guest")) {
                         int guestid = 0;
-                        Guest G = new Guest(guestid, fname, lname, uname, pass, phone, role);
+                        Guest G = new Guest(guestid, fname, lname, uname, pass, phone, "Guest");
                         GuestConnection GC = new GuestConnection();
                         boolean success = GC.saveGuestData(G);
                         if (success) {
@@ -167,7 +174,24 @@ public class newRegisterController {
                             root = loader.load();
                             scene = new Scene(root);
                             guest1Controller welcomeController = loader.getController();
-                            welcomeController.displayGuest(fname);
+
+                            try (Connection con = DatabaseConnection.getConnection()) {
+                                PreparedStatement P = con.prepareStatement(
+                                        "SELECT g.guest_id, u.f_name "
+                                        + "FROM Guest g "
+                                        + "JOIN User u ON g.user_name = u.user_name "
+                                        + "WHERE g.user_name = ?");
+                                P.setString(1, uname);
+                                ResultSet r = P.executeQuery();
+                                if (r.next()) {
+                                    fname = r.getString("f_name");
+                                    int guestId = r.getInt("guest_id");
+                                    welcomeController.displayGuest(fname);
+                                    welcomeController.setCurrentGuestId(guestId);
+                                }
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
                         } else {
                             Alert alert = new Alert(Alert.AlertType.ERROR);
                             alert.setTitle("Registration");

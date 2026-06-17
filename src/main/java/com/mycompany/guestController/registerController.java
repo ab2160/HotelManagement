@@ -1,8 +1,12 @@
 package com.mycompany.guestController;
 
+import com.mycompany.dao.DatabaseConnection;
 import com.mycompany.dao.GuestConnection;
 import com.mycompany.model.CurrentUser;  
 import com.mycompany.model.Guest;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -158,7 +162,21 @@ public class registerController {
                     Scene scene = new Scene(root);
 
                     guest1Controller welcomeController = loader.getController();
-                    welcomeController.displayGuest(fname);
+                    try (Connection con = DatabaseConnection.getConnection()) {
+                        PreparedStatement P = con.prepareStatement(
+                                "SELECT g.guest_id, u.f_name "
+                                + "FROM Guest g "
+                                + "JOIN User u ON g.user_name = u.user_name "
+                                + "WHERE g.user_name = ?");
+                        P.setString(1, uname);
+                        ResultSet r = P.executeQuery();
+                        if (r.next()) {
+                            fname = r.getString("f_name");
+                            int guestId = r.getInt("guest_id");
+                            welcomeController.displayGuest(fname);
+                            welcomeController.setCurrentGuestId(guestId);
+                        }
+                    }
                     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     stage.setScene(scene);
 

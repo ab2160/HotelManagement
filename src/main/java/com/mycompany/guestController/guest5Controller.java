@@ -49,6 +49,13 @@ public class guest5Controller {
     Parent root;
     Stage stage;
 
+    private int currentGuestId;
+
+    public void setCurrentGuestId(int guestId) {
+        this.currentGuestId = guestId;
+        initialize();
+    }
+
     @FXML
     public void initialize() {
         ObservableList<Booking> availableBooking = FXCollections.observableArrayList();
@@ -125,7 +132,16 @@ public class guest5Controller {
 
         ObservableList<Payment> availablePayment = FXCollections.observableArrayList();
         try (Connection con = DatabaseConnection.getConnection()) {
-            PreparedStatement P = con.prepareStatement("SELECT * FROM Payment");
+            PreparedStatement P = con.prepareStatement(
+                    "SELECT p.payment_id, p.booking_id, p.total_amount, p.payment_date, p.payment_status "
+                    + "FROM Payment p "
+                    + "JOIN Booking b ON p.booking_id = b.booking_id "
+                    + "JOIN Guest_booking gb ON gb.booking_id = b.booking_id "
+                    + "JOIN Guest g ON g.guest_id = gb.guest_id "
+                    + "WHERE g.guest_id = ?"
+            );
+
+            P.setInt(1, currentGuestId);
             ResultSet R = P.executeQuery();
             while (R.next()) {
                 Payment pay = new Payment(
@@ -191,8 +207,12 @@ public class guest5Controller {
     @FXML
     public void switchToguest1(MouseEvent event) {
         try {
-            root = FXMLLoader.load(getClass().getResource("/guestFxml/guest1.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/guestFxml/guest1.fxml"));
+            root = loader.load();
             Scene scene = new Scene(root);
+
+            guest1Controller bookingController = loader.getController();
+            bookingController.setCurrentGuestId(currentGuestId);
 
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);
@@ -212,8 +232,12 @@ public class guest5Controller {
     @FXML
     public void switchToguest2(MouseEvent event) {
         try {
-            root = FXMLLoader.load(getClass().getResource("/guestFxml/guest2.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/guestFxml/guest2.fxml"));
+            root = loader.load();
             Scene scene = new Scene(root);
+
+            guest2Controller bookingController = loader.getController();
+            bookingController.setCurrentGuestId(currentGuestId);
 
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);
@@ -235,6 +259,8 @@ public class guest5Controller {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/guestFxml/guest3.fxml"));
             root = loader.load();
+            guest3Controller bookingController = loader.getController();
+            bookingController.setCurrentGuestId(currentGuestId);
             Scene scene = new Scene(root);
 
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -255,8 +281,12 @@ public class guest5Controller {
     @FXML
     public void switchToguest4(MouseEvent event) {
         try {
-            root = FXMLLoader.load(getClass().getResource("/guestFxml/guest4.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/guestFxml/guest4.fxml"));
+            root = loader.load();
             Scene scene = new Scene(root);
+
+            guest4Controller bookingController = loader.getController();
+            bookingController.setCurrentGuestId(currentGuestId);
 
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);

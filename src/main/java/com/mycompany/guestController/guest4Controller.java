@@ -22,6 +22,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class guest4Controller {
+
     @FXML
     private TableView<Service> serviceTable;
     @FXML
@@ -34,9 +35,16 @@ public class guest4Controller {
     private TableColumn<Service, String> colServiceStatus;
     @FXML
     private TableColumn<Service, Integer> colBookingId;
-    
+
     Parent root;
     Stage stage;
+
+    private int currentGuestId;
+
+    public void setCurrentGuestId(int guestId) {
+        this.currentGuestId = guestId;
+        initialize();
+    }
 
     @FXML
     public void initialize() {
@@ -51,8 +59,13 @@ public class guest4Controller {
             PreparedStatement P = con.prepareStatement(
                     "SELECT s.service_id, s.service_type, s.service_price, sr.service_status, sr.booking_id "
                     + "FROM ServiceAdding s "
-                    + "JOIN Service sr ON s.service_id = sr.service_id;"
+                    + "JOIN Service sr ON s.service_id = sr.service_id "
+                    + "JOIN Booking b ON sr.booking_id = b.booking_id "
+                    + "JOIN Guest_booking gb ON b.booking_id = gb.booking_id "
+                    + "JOIN Guest g ON gb.guest_id = g.guest_id "
+                    + "WHERE g.guest_id = ?"
             );
+            P.setInt(1, currentGuestId);
 
             ResultSet r = P.executeQuery();
             while (r.next()) {
@@ -86,12 +99,9 @@ public class guest4Controller {
             int serviceid = selectedService.getServiceid();
             ServiceConnection SC = new ServiceConnection();
             boolean success = SC.cancelGuestService(bookingid, serviceid);
-            if(success)
-            {
+            if (success) {
                 System.out.println("Service cancelled successfully.");
-            }
-            else
-            {
+            } else {
                 System.out.println("Service not cancelled.");
             }
 
@@ -99,12 +109,16 @@ public class guest4Controller {
             e.printStackTrace();
         }
     }
-    
-        @FXML
+
+    @FXML
     public void switchToguest1(MouseEvent event) {
         try {
-            root = FXMLLoader.load(getClass().getResource("/guestFxml/guest1.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/guestFxml/guest1.fxml"));
+            root = loader.load();
             Scene scene = new Scene(root);
+
+            guest1Controller bookingController = loader.getController();
+            bookingController.setCurrentGuestId(currentGuestId);
 
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);
@@ -118,12 +132,16 @@ public class guest4Controller {
             e.printStackTrace();
         }
     }
-    
+
     @FXML
     public void switchToguest2(MouseEvent event) {
         try {
-            root = FXMLLoader.load(getClass().getResource("/guestFxml/guest2.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/guestFxml/guest2.fxml"));
+            root = loader.load();
             Scene scene = new Scene(root);
+
+            guest2Controller bookingController = loader.getController();
+            bookingController.setCurrentGuestId(currentGuestId);
 
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);
@@ -139,12 +157,14 @@ public class guest4Controller {
             e.printStackTrace();
         }
     }
-    
+
     @FXML
     public void switchToguest3(MouseEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/guestFxml/guest3.fxml"));
             root = loader.load();
+            guest3Controller bookingController = loader.getController();
+            bookingController.setCurrentGuestId(currentGuestId);
             Scene scene = new Scene(root);
 
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -152,7 +172,7 @@ public class guest4Controller {
 
             String css = getClass().getResource("/CSS/Style.css").toExternalForm();
             scene.getStylesheets().add(css);
-            
+
             stage.getIcons().add(new Image(getClass().getResourceAsStream("/Images/Hotel.png")));
             stage.setTitle("Hotel Management System");
             stage.show();
@@ -161,19 +181,23 @@ public class guest4Controller {
             e.printStackTrace();
         }
     }
-    
-        @FXML
+
+    @FXML
     public void switchToguest5(MouseEvent event) {
         try {
-            root = FXMLLoader.load(getClass().getResource("/guestFxml/guest5.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/guestFxml/guest5.fxml"));
+            root = loader.load();
             Scene scene = new Scene(root);
+
+            guest5Controller bookingController = loader.getController();
+            bookingController.setCurrentGuestId(currentGuestId);
 
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);
 
             String css = getClass().getResource("/CSS/Style.css").toExternalForm();
             scene.getStylesheets().add(css);
-            
+
             stage.getIcons().add(new Image(getClass().getResourceAsStream("/Images/Hotel.png")));
             stage.setTitle("Hotel Management System");
             stage.show();
