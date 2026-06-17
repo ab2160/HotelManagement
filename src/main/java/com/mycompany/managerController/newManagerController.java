@@ -131,115 +131,67 @@ public class newManagerController {
     
     @FXML
     public void switchToregister(ActionEvent event) {
-        try {
-            root = FXMLLoader.load(getClass().getResource("/guestFxml/registerScene.fxml"));
-            Scene scene = new Scene(root);
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            stage.setScene(scene);
-            String css = getClass().getResource("/CSS/Style.css").toExternalForm();
-            scene.getStylesheets().add(css);
-
-            Stage newStage = new Stage();
-            newStage.initStyle(StageStyle.UNDECORATED);
-
-            newStage.setScene(scene);
-            newStage.show();
-            stage.close();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        switchscene_UNDECORATED(event,"/guestFxml/registerScene.fxml");
+            
     }
     
      @FXML
     public void switchToWaiterregister(ActionEvent event) {
-        try {
-            root = FXMLLoader.load(getClass().getResource("/waiterFxml/registerWaiter.fxml"));
-            Scene scene = new Scene(root);
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            stage.setScene(scene);
-            String css = getClass().getResource("/CSS/Style.css").toExternalForm();
-            scene.getStylesheets().add(css);
-
-            Stage newStage = new Stage();
-            newStage.initStyle(StageStyle.UNDECORATED);
-
-            newStage.setScene(scene);
-            newStage.show();
-            stage.close();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        
+         switchscene_UNDECORATED(event,"/waiterFxml/registerWaiter.fxml");
+            
     }
     
     @FXML
     public void switchToNewregister(ActionEvent event) {
-        try {
-            root = FXMLLoader.load(getClass().getResource("/managerFxml/newRegister.fxml"));
-            Scene scene = new Scene(root);
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            stage.setScene(scene);
-            String css = getClass().getResource("/CSS/Style.css").toExternalForm();
-            scene.getStylesheets().add(css);
-
-            Stage newStage = new Stage();
-            newStage.initStyle(StageStyle.UNDECORATED);
-
-            newStage.setScene(scene);
-            newStage.show();
-            stage.close();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        switchscene_UNDECORATED(event,"/managerFxml/newRegister.fxml");
+           
     }
     
     @FXML
     public void switchToremoveUser(ActionEvent event) {
-        try {
-            root = FXMLLoader.load(getClass().getResource("/managerFxml/removeUser.fxml"));
-            Scene scene = new Scene(root);
-
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(scene);
-
-            String css = getClass().getResource("/CSS/Style.css").toExternalForm();
-            scene.getStylesheets().add(css);
-
-            stage.show();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        switchScene(event,"/managerFxml/removeUser.fxml");
+            
     }
     
     @FXML
     public void switchToaddRoomandService(ActionEvent event) {
-        try {
-            root = FXMLLoader.load(getClass().getResource("/managerFxml/addRoomandService.fxml"));
-            Scene scene = new Scene(root);
-
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(scene);
-
-            String css = getClass().getResource("/CSS/Style.css").toExternalForm();
-            scene.getStylesheets().add(css);
-
-            stage.show();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        switchScene(event,"/managerFxml/addRoomandService.fxml");
+         
     }
     
     @FXML
     public void switchTologin(ActionEvent event) {
+       switchScene(event,"/guestFxml/loginScene.fxml");
+            
+    }
+    
+    @FXML
+    public void switchToremoveRoomandService(ActionEvent event) {
+       switchScene(event,"/managerFxml/removeRoomandService.fxml");
+        }
+        
+        @FXML
+    public void switchToguestSidebar(ActionEvent event) {
+        switchScene(event,"/managerFxml/guestSidebar.fxml");
+            
+    }
+    
+        @FXML
+    public void switchTostaffSidebar(ActionEvent event) {
+      switchScene(event,"/managerFxml/staffSidebar.fxml");
+            
+    } 
+    
+        @FXML
+    public void switchToremoveBookingandCheckout(ActionEvent event) {
+      switchScene(event,"/managerFxml/removeBookingandCheckout.fxml");
+            
+    }
+    public void switchscene_UNDECORATED(ActionEvent event, String path) {
+
         try {
-            root = FXMLLoader.load(getClass().getResource("/guestFxml/loginScene.fxml"));
+            root = FXMLLoader.load(getClass().getResource(path));
             Scene scene = new Scene(root);
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
@@ -258,14 +210,12 @@ public class newManagerController {
             e.printStackTrace();
         }
     }
-    
-    @FXML
-    public void switchToremoveRoomandService(ActionEvent event) {
+    private void switchScene(ActionEvent event, String fxmlPath) {
         try {
-            root = FXMLLoader.load(getClass().getResource("/managerFxml/removeRoomandService.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource(fxmlPath));
             Scene scene = new Scene(root);
 
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);
 
             String css = getClass().getResource("/CSS/Style.css").toExternalForm();
@@ -277,61 +227,5 @@ public class newManagerController {
             e.printStackTrace();
         }
     }
-        
-        @FXML
-    public void switchToguestSidebar(ActionEvent event) {
-        try {
-            root = FXMLLoader.load(getClass().getResource("/managerFxml/guestSidebar.fxml"));
-            Scene scene = new Scene(root);
 
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(scene);
-
-            String css = getClass().getResource("/CSS/Style.css").toExternalForm();
-            scene.getStylesheets().add(css);
-
-            stage.show();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-    
-        @FXML
-    public void switchTostaffSidebar(ActionEvent event) {
-        try {
-            root = FXMLLoader.load(getClass().getResource("/managerFxml/staffSidebar.fxml"));
-            Scene scene = new Scene(root);
-
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(scene);
-
-            String css = getClass().getResource("/CSS/Style.css").toExternalForm();
-            scene.getStylesheets().add(css);
-
-            stage.show();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    } 
-    
-        @FXML
-    public void switchToremoveBookingandCheckout(ActionEvent event) {
-        try {
-            root = FXMLLoader.load(getClass().getResource("/managerFxml/removeBookingandCheckout.fxml"));
-            Scene scene = new Scene(root);
-
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(scene);
-
-            String css = getClass().getResource("/CSS/Style.css").toExternalForm();
-            scene.getStylesheets().add(css);
-
-            stage.show();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 }
