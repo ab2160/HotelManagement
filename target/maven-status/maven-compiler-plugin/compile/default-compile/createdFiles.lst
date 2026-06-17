@@ -4,6 +4,7 @@ com\mycompany\guestController\guest3Controller.class
 com\mycompany\model\Manager.class
 com\mycompany\dao\BookingConnection.class
 com\mycompany\model\User.class
+com\mycompany\managerController\Session.class
 com\mycompany\hotelmaven\MainGUI.class
 com\mycompany\model\Room.class
 com\mycompany\dao\RoomConnection.class

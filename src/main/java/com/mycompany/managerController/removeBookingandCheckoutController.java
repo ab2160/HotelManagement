@@ -75,10 +75,9 @@ public class removeBookingandCheckoutController {
     }
 
     @FXML
-    public void removeBooking(ActionEvent event)
-    {
+    public void removeBooking(ActionEvent event) {
         AvailableInfo selectedBooking = infoTable.getSelectionModel().getSelectedItem();
-        
+
         if (selectedBooking == null) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("No booking Service");
@@ -87,7 +86,7 @@ public class removeBookingandCheckoutController {
             System.out.println("Please select a booking to remove.");
             return;
         }
-        
+
         try {
             int bookingId = selectedBooking.getBookingId();
             int roomNum = selectedBooking.getRoomNum();
@@ -103,10 +102,9 @@ public class removeBookingandCheckoutController {
             e.printStackTrace();
         }
     }
-    
+
     @FXML
-    public void checkOut(ActionEvent event)
-    {
+    public void checkOut(ActionEvent event) {
         AvailableInfo selectedPayment = infoTable.getSelectionModel().getSelectedItem();
         if (selectedPayment != null) {
             int bookingId = selectedPayment.getBookingId();
@@ -149,12 +147,17 @@ public class removeBookingandCheckoutController {
             }
         }
     }
-    
-        @FXML
+
+    @FXML
     public void switchToNewmanager(MouseEvent event) {
         try {
-            root = FXMLLoader.load(getClass().getResource("/managerFxml/newManagerFxml.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/managerFxml/newManagerFxml.fxml"));
+            root = loader.load();
             Scene scene = new Scene(root);
+
+            newManagerController managerController = loader.getController();
+            managerController.setCurrrentManagerId(Session.getManagerId());
+            managerController.displayManager(Session.getManagerName());
 
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);

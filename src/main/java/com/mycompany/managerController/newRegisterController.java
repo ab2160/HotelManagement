@@ -40,7 +40,7 @@ public class newRegisterController {
     @FXML
     private TextField phoneField;
     @FXML
-    private ChoiceBox <String>role;
+    private ChoiceBox<String> role;
     @FXML
     private ImageView closeIcon4;
     Stage stage;
@@ -91,7 +91,7 @@ public class newRegisterController {
                 //roleField.requestFocus();
             }
         });
-        
+
         role.getItems().addAll(
                 "Manager",
                 "Waiter",
@@ -110,9 +110,8 @@ public class newRegisterController {
             String uname = usernameField.getText();
             String pass = passwordField.getText();
             String phone = phoneField.getText();
-            
 
-            if (fname.isEmpty() || lname.isEmpty() || uname.isEmpty() || pass.isEmpty() || phone.isEmpty() || role.getValue()==null) {
+            if (fname.isEmpty() || lname.isEmpty() || uname.isEmpty() || pass.isEmpty() || phone.isEmpty() || role.getValue() == null) {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Missing Information");
                 alert.setHeaderText("Registration Incomplete");
@@ -227,8 +226,13 @@ public class newRegisterController {
     @FXML
     public void switchToNewManager(MouseEvent event) {
         try {
-            root = FXMLLoader.load(getClass().getResource("/managerFxml/newManagerFxml.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/managerFxml/newManagerFxml.fxml"));
+            root = loader.load();
             Scene scene = new Scene(root);
+
+            newManagerController managerController = loader.getController();
+            managerController.setCurrrentManagerId(Session.getManagerId());
+            managerController.displayManager(Session.getManagerName());
 
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);

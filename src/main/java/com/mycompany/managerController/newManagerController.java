@@ -50,7 +50,13 @@ public class newManagerController {
 
     @FXML
     public void displayManager(String name) {
-        welcomelabel.setText("Welcome Manager " + name);
+        welcomelabel.setText("Welcome Manager " + Session.getManagerName());
+    }
+
+    private int currentManagerId;
+
+    public void setCurrrentManagerId(int managerId) {
+        this.currentManagerId = managerId;
     }
 
     @FXML
@@ -104,7 +110,7 @@ public class newManagerController {
         }
     }
 
-        @FXML
+    @FXML
     public void switchTohome(ActionEvent event) {
         try {
             root = FXMLLoader.load(getClass().getResource("/guestFxml/homePage.fxml"));
@@ -119,7 +125,7 @@ public class newManagerController {
             stage.close();
             Stage homeStage = new Stage();
             homeStage.setScene(scene);
-            
+
             homeStage.getIcons().add(new Image(getClass().getResourceAsStream("/Images/Hotel.png")));
             homeStage.setTitle("Hotel Management System");
             homeStage.show();
@@ -128,71 +134,79 @@ public class newManagerController {
             e.printStackTrace();
         }
     }
-    
+
     @FXML
     public void switchToregister(ActionEvent event) {
-        switchscene_UNDECORATED(event,"/guestFxml/registerScene.fxml");
-            
+        switchscene_UNDECORATED(event, "/guestFxml/registerScene.fxml");
     }
-    
-     @FXML
+
+    @FXML
     public void switchToWaiterregister(ActionEvent event) {
-        
-         switchscene_UNDECORATED(event,"/waiterFxml/registerWaiter.fxml");
-            
+
+        switchscene_UNDECORATED(event, "/waiterFxml/registerWaiter.fxml");
+
     }
-    
+
     @FXML
     public void switchToNewregister(ActionEvent event) {
-        switchscene_UNDECORATED(event,"/managerFxml/newRegister.fxml");
-           
+        switchscene_UNDECORATED(event, "/managerFxml/newRegister.fxml");
+
     }
-    
+
     @FXML
     public void switchToremoveUser(ActionEvent event) {
-        switchScene(event,"/managerFxml/removeUser.fxml");
-            
+        switchScene(event, "/managerFxml/removeUser.fxml");
+
     }
-    
+
     @FXML
     public void switchToaddRoomandService(ActionEvent event) {
-        switchScene(event,"/managerFxml/addRoomandService.fxml");
-         
+        switchScene(event, "/managerFxml/addRoomandService.fxml");
+
     }
-    
+
     @FXML
     public void switchTologin(ActionEvent event) {
-       switchScene(event,"/guestFxml/loginScene.fxml");
-            
+        switchScene(event, "/guestFxml/loginScene.fxml");
+
     }
-    
+
     @FXML
     public void switchToremoveRoomandService(ActionEvent event) {
-       switchScene(event,"/managerFxml/removeRoomandService.fxml");
-        }
-        
-        @FXML
+        switchScene(event, "/managerFxml/removeRoomandService.fxml");
+    }
+
+    @FXML
     public void switchToguestSidebar(ActionEvent event) {
-        switchScene(event,"/managerFxml/guestSidebar.fxml");
-            
+        switchScene(event, "/managerFxml/guestSidebar.fxml");
+
     }
-    
-        @FXML
+
+    @FXML
     public void switchTostaffSidebar(ActionEvent event) {
-      switchScene(event,"/managerFxml/staffSidebar.fxml");
-            
-    } 
-    
-        @FXML
-    public void switchToremoveBookingandCheckout(ActionEvent event) {
-      switchScene(event,"/managerFxml/removeBookingandCheckout.fxml");
-            
+        switchScene(event, "/managerFxml/staffSidebar.fxml");
+
     }
+
+    @FXML
+    public void switchToremoveBookingandCheckout(ActionEvent event) {
+        switchScene(event, "/managerFxml/removeBookingandCheckout.fxml");
+
+    }
+
     public void switchscene_UNDECORATED(ActionEvent event, String path) {
 
         try {
-            root = FXMLLoader.load(getClass().getResource(path));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
+            root = loader.load();
             Scene scene = new Scene(root);
+
+            Object controller = loader.getController();
+            if (controller instanceof newManagerController) {
+                newManagerController managerController = (newManagerController) loader.getController();
+                managerController.setCurrrentManagerId(currentManagerId);
+                managerController.displayManager(Session.getManagerName());
+            }
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
             stage.setScene(scene);
@@ -210,10 +224,19 @@ public class newManagerController {
             e.printStackTrace();
         }
     }
+
     private void switchScene(ActionEvent event, String fxmlPath) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource(fxmlPath));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+            root = loader.load();
             Scene scene = new Scene(root);
+
+            Object controller = loader.getController();
+            if (controller instanceof newManagerController) {
+                newManagerController managerController = (newManagerController) loader.getController();
+                managerController.setCurrrentManagerId(currentManagerId);
+                managerController.displayManager(Session.getManagerName());
+            }
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);

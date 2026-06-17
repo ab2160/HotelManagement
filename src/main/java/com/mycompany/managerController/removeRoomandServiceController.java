@@ -155,8 +155,13 @@ public class removeRoomandServiceController {
     @FXML
     public void switchToNewmanager(MouseEvent event) {
         try {
-            root = FXMLLoader.load(getClass().getResource("/managerFxml/newManagerFxml.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/managerFxml/newManagerFxml.fxml"));
+            root = loader.load();
             Scene scene = new Scene(root);
+
+            newManagerController managerController = loader.getController();
+            managerController.setCurrrentManagerId(Session.getManagerId());
+            managerController.displayManager(Session.getManagerName());
 
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);

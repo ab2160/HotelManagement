@@ -2,9 +2,11 @@ package com.mycompany.guestController;
 
 import com.mycompany.dao.DatabaseConnection;
 import com.mycompany.dao.UserConnection;
+import com.mycompany.managerController.Session;
 import com.mycompany.model.CurrentUser;
 import com.mycompany.managerController.newManagerController;
 import com.mycompany.waiterController.waiter1Controller;
+import java.lang.reflect.Array;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -105,12 +107,21 @@ public class loginController {
 
                     newManagerController welcomeController = loader.getController();
                     try (Connection con = DatabaseConnection.getConnection()) {
-                        PreparedStatement P = con.prepareStatement("SELECT f_name FROM User WHERE user_name = ?");
+                        PreparedStatement P = con.prepareStatement(
+                                "SELECT m.manager_id, u.f_name, u.user_name "
+                                + "FROM Manager m "
+                                + "JOIN User u ON m.user_name = u.user_name "
+                                + "WHERE u.user_name = ?"
+                        );
                         P.setString(1, uname);
                         ResultSet r = P.executeQuery();
                         if (r.next()) {
                             String fname = r.getString("f_name");
+                            int managerId = r.getInt("manager_id");
+                            
+                            Session.setManager(managerId, fname, uname);
                             welcomeController.displayManager(fname);
+                            welcomeController.setCurrrentManagerId(managerId);
                         }
                     }
 
