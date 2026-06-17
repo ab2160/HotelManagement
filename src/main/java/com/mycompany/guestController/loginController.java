@@ -6,7 +6,6 @@ import com.mycompany.managerController.Session;
 import com.mycompany.model.CurrentUser;
 import com.mycompany.managerController.newManagerController;
 import com.mycompany.waiterController.waiter1Controller;
-import java.lang.reflect.Array;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
