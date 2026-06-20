@@ -11,8 +11,8 @@ public class WaiterConnection {
         PreparedStatement P1 = null, P2 = null;
         try {
             con = DatabaseConnection.getConnection();
-            String addUser = "INSERT INTO User(f_name, l_name, user_name, password, phone_num) VALUES (?, ?, ?, ?, ?)";
-            String addGuest = "INSERT INTO Waiter(user_name, waiter_id) VALUES (?)";
+            String addUser = "INSERT INTO User(f_name, l_name, user_name, password, phone_num, role) VALUES (?, ?, ?, ?, ?, ?)";
+            String addGuest = "INSERT INTO Waiter(user_name) VALUES (?)";
 
             P1 = con.prepareStatement(addUser);
             P2 = con.prepareStatement(addGuest);
@@ -22,6 +22,7 @@ public class WaiterConnection {
             P1.setString(3, W.getUsername());
             P1.setString(4, W.getPassword());
             P1.setString(5, W.getPhonenum());
+            P1.setString(6, "Waiter");
 
             P2.setString(1, W.getUsername());
 //            P2.setInt(2, W.getWaiterid());

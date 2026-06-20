@@ -25,7 +25,7 @@ public class ManagerConnection {
             int x = P1.executeUpdate();
 
             if ("Manager".equalsIgnoreCase(M.getRole())) {
-                String addManager = "INSERT INTO Manager (user_name, manager_id) VALUES (?)";
+                String addManager = "INSERT INTO Manager (user_name) VALUES (?)";
                 P2 = con.prepareStatement(addManager);
                 P2.setString(1, M.getUsername());
 //                P2.setInt(2, M.getManagerid());
@@ -36,7 +36,7 @@ public class ManagerConnection {
                 }
 
             } else if ("Waiter".equalsIgnoreCase(M.getRole())) {
-                String addWaiter = "INSERT INTO Waiter (user_name, waiter_id) VALUES (?)";
+                String addWaiter = "INSERT INTO Waiter (user_name) VALUES (?)";
                 P3 = con.prepareStatement(addWaiter);
                 P3.setString(1, M.getUsername());
 //                P3.setInt(2, M.getWaiterid());
@@ -47,7 +47,7 @@ public class ManagerConnection {
                 }
 
             } else if ("Guest".equalsIgnoreCase(M.getRole())) {
-                String addGuest = "INSERT INTO Guest (user_name, guest_id) VALUES (?)";
+                String addGuest = "INSERT INTO Guest (user_name) VALUES (?)";
                 P4 = con.prepareStatement(addGuest);
                 P4.setString(1, M.getUsername());
 //                P4.setInt(2, M.getGuestid());

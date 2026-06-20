@@ -37,7 +37,7 @@ public class homeController {
     private TableView<Room> roomTable;
     @FXML
     private TableColumn<Room, Integer> colRoomNum;
-    @FXML 
+    @FXML
     private TableColumn<Room, String> colRoomStatus;
     @FXML
     private TableColumn<Room, String> colClassName;

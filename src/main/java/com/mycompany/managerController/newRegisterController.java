@@ -3,9 +3,11 @@ package com.mycompany.managerController;
 import com.mycompany.dao.DatabaseConnection;
 import com.mycompany.dao.GuestConnection;
 import com.mycompany.dao.ManagerConnection;
+import com.mycompany.dao.WaiterConnection;
 import com.mycompany.guestController.guest1Controller;
 import com.mycompany.model.Guest;
 import com.mycompany.model.Manager;
+import com.mycompany.model.Waiter;
 import com.mycompany.waiterController.waiter1Controller;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -138,29 +140,49 @@ public class newRegisterController {
                             scene = new Scene(root);
                             newManagerController welcomeController = loader.getController();
                             welcomeController.displayManager(fname);
+
+                            stage.setScene(scene);
+                            stage.close();
+
+                            Stage newStage = new Stage();
+                            newStage.setScene(scene);
+                            newStage.getIcons().add(new Image(getClass().getResourceAsStream("/Images/Hotel.png")));
+                            newStage.setTitle("Hotel Management System");
+                            newStage.show();
                         } else {
                             Alert alert = new Alert(Alert.AlertType.ERROR);
                             alert.setTitle("Registration");
-                            alert.setHeaderText("Registration failed.");
+                            alert.setContentText("User with this username already exists.");
                             alert.showAndWait();
+                            System.out.println("Registration failed.");
                         }
 
                     } else if (role.getValue().equals("Waiter")) {
                         int waiterid = 0;
-                        Manager M = new Manager(waiterid, fname, lname, uname, pass, phone, "Waiter");
-                        ManagerConnection MC = new ManagerConnection();
-                        boolean success = MC.saveManagerData(M);
+                        Waiter W = new Waiter(waiterid, fname, lname, uname, pass, phone, "Waiter");
+                        WaiterConnection WC = new WaiterConnection();
+                        boolean success = WC.saveWaiterData(W);
                         if (success) {
                             loader = new FXMLLoader(getClass().getResource("/waiterFxml/waiter1.fxml"));
                             root = loader.load();
                             scene = new Scene(root);
                             waiter1Controller welcomeController = loader.getController();
                             welcomeController.displayWaiter(fname);
+
+                            stage.setScene(scene);
+                            stage.close();
+
+                            Stage newStage = new Stage();
+                            newStage.setScene(scene);
+                            newStage.getIcons().add(new Image(getClass().getResourceAsStream("/Images/Hotel.png")));
+                            newStage.setTitle("Hotel Management System");
+                            newStage.show();
                         } else {
                             Alert alert = new Alert(Alert.AlertType.ERROR);
                             alert.setTitle("Registration");
-                            alert.setHeaderText("Registration failed.");
+                            alert.setContentText("User with this username already exists.");
                             alert.showAndWait();
+                            System.out.println("Registration failed.");
                         }
 
                     } else if (role.getValue().equals("Guest")) {
@@ -188,26 +210,26 @@ public class newRegisterController {
                                     welcomeController.displayGuest(fname);
                                     welcomeController.setCurrentGuestId(guestId);
                                 }
+                                stage.setScene(scene);
+                                stage.close();
+
+                                Stage newStage = new Stage();
+                                newStage.setScene(scene);
+                                newStage.getIcons().add(new Image(getClass().getResourceAsStream("/Images/Hotel.png")));
+                                newStage.setTitle("Hotel Management System");
+                                newStage.show();
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
                         } else {
                             Alert alert = new Alert(Alert.AlertType.ERROR);
                             alert.setTitle("Registration");
-                            alert.setHeaderText("Registration failed.");
+                            alert.setContentText("User with this username already exists.");
                             alert.showAndWait();
+                            System.out.println("Registration failed.");
                         }
-
                     }
 
-                    stage.setScene(scene);
-                    stage.close();
-
-                    Stage newStage = new Stage();
-                    newStage.setScene(scene);
-                    newStage.getIcons().add(new Image(getClass().getResourceAsStream("/Images/Hotel.png")));
-                    newStage.setTitle("Hotel Management System");
-                    newStage.show();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
